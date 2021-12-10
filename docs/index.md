@@ -1,6 +1,6 @@
 ---
 permalink: /
 ---
-# University Service Planning
+## University Service Planning
 
 - [Schema](schema.md)
