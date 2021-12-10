@@ -1,1 +1,1 @@
-https://ua-usp.github.io/web/
+https://ua-usp.github.io/timetabling/
