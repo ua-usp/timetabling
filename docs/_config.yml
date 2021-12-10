@@ -3,4 +3,4 @@ plugins:
   - jekyll-include-cache
   - jekyll-remote-theme
 
-remote_theme: pages-themes/cayman@v0.2.0
+remote_theme: mmistakes/minimal-mistakes
