@@ -1,8 +1,23 @@
 ---
 title: "XML Schema specifications"
 layout: splash
-toc: true
-toc_sticky: true
+#pas de toc avec splash
+#toc: true
+#toc_sticky: true
+#donc on utilise sidebar:
+sidebar:
+    - title "Rooms"
+        url "#rooms"
+    - title "Teachers"
+        url "#teachers"
+    - title "Courses"
+        url "#courses"
+    - title "Students"
+        url "#students"
+    - title "Constraints"
+        url "#constraints"
+    - title "Solution"
+        url "#solution"
 permalink: /schema
 ---
 
