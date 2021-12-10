@@ -27,9 +27,9 @@ This schema represents both an instance and its solution.
       <!-- ... -->
     </students>
     
-    <constraints>
+    <rules>
       <!-- ... -->
-    </constraints>
+    </rules>
 
     <solution>
       <!-- ... -->
@@ -51,6 +51,6 @@ The XML root element `timetabling` has 4 mandatory attributes:
 
 ## Students
 
-## Constraints
+## Rules
 
 ## Solution
