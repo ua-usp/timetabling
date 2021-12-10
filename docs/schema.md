@@ -1,7 +1,6 @@
 ---
 title: "XML Schema specifications"
 layout: single
-classes: wide
 toc: true
 permalink: /schema
 ---
