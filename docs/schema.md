@@ -187,25 +187,29 @@ By forcing the students of the practice `course-1-practice-1` to attend the tuto
 | course-1-lecture-1 | course-1-tutorial-2 | course-1-practice-3 |
 
 <table>
-	<tr>
-		<th>Lecture</th>
-		<th>Tutorial</th>
-		<th>Practice</th>
-	</tr>
-	<tr>
-		<td rowspan="4">course-1-lecture-1</td>
-		<td rowspan="2">course-1-tutorial-1</td>
-		<td>course-1-practice-1</td>
-	</tr>
-	<tr>
-		<td rowspan="2">course-1-practice-2</td>
-	</tr>
-	<tr>
-		<td rowspan="2">course-1-tutorial-2</td>
-	</tr>
-	<tr>
-		<td>course-1-practice-3</td>
-	</tr>
+	<thead>
+		<tr>
+			<th>Lecture</th>
+			<th>Tutorial</th>
+			<th>Practice</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td rowspan="4">course-1-lecture-1</td>
+			<td rowspan="2">course-1-tutorial-1</td>
+			<td>course-1-practice-1</td>
+		</tr>
+		<tr>
+			<td rowspan="2">course-1-practice-2</td>
+		</tr>
+		<tr>
+			<td rowspan="2">course-1-tutorial-2</td>
+		</tr>
+		<tr>
+			<td>course-1-practice-3</td>
+		</tr>
+	</tbody>
 </table>
 
 The `allowedSlots` element is used to define the time-related information of a session.
