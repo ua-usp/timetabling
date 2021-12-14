@@ -188,9 +188,9 @@ By forcing the students of the practice `course-1-practice-1` to attend the tuto
 
 <table>
 	<tr>
-		<th>Lecture</td>
-		<th>Tutorial</td>
-		<th>Practice</td>
+		<th>Lecture</th>
+		<th>Tutorial</th>
+		<th>Practice</th>
 	</tr>
 	<tr>
 		<td rowspan="4">course-1-lecture-1</td>
