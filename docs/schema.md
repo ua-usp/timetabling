@@ -1,6 +1,6 @@
 ---
 title: "XML Schema specifications"
-layout: splash
+layout: single
 toc: true
 toc_sticky: true
 permalink: /schema
