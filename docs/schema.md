@@ -175,6 +175,7 @@ In the example below, the course `course-1` is a 3rd year of bachelor course fro
 
 A course is divided into parts.
 A student that decide to follow a course must attend all the parts of the course.
+Each part has a number of sessions (`nrSessions`) that students will attend.
 In the part, we define the student classes, the time slots when the sessions can start, the rooms in which the sessions can be and the teachers.
 
 ### Classes
@@ -288,6 +289,25 @@ The two teachers `teacher-1` and `teacher-2` shares evenly the sessions of the p
 Whether `teacher-1` does all the first sessions then `teacher-2` the last ones, or `teacher-1` and `teacher-2` have a class each and share the third, or another repartition, is not described here.
 
 ## Students
+
+```xml
+<!-- into the root element 'timetabling' -->
+<students>
+	<student id="student-1" label="Computer-Sciences">
+		<courses>
+			<course refId="course-1"/>
+			<course refId="course-2"/>
+			<course refId="course-4"/>
+		</courses>
+	</student>
+</students>
+```
+
+Students are registered to a list of courses.
+The students will be assigned to one class of all the parts of the registered courses.
+The class assignation is done by following the class hierarchy (`parent` attribute of the `class` elements), if any.
+
+As every courses and resources of a USP problem, students are identified by an id and can be labelled.
 
 ## Rules
 
