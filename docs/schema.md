@@ -177,6 +177,8 @@ A course is divided into parts.
 A student that decide to follow a course must attend all the parts of the course.
 In the part, we define the student classes, the time slots when the sessions can start, the rooms in which the sessions can be and the teachers.
 
+### Classes
+
 ```xml
 <!-- into a 'part' element -->
 <classes>
@@ -224,6 +226,8 @@ Note that this is useless in this particular case because the lecture part has o
 </table>
 
 
+### Slots
+
 ```xml
 <!-- into a 'part' element -->
 <allowedSlots sessionLength="80">
@@ -244,6 +248,8 @@ In the example above, sessions last `80` slots (80 minutes in our case).
 The time grid has 9 possible start slots: 08h00 (`480`), 09h30 (`570`), 11h00 (`660`), 12h30 (`750`), 14h00 (`840`), 15h30 (`930`), 17h00 (`1020`), 18h30 (`1110`) or 20h00 (`1200`).
 This grid is valid for all the all the days (`1-5`) and all the weeks (`1-12`).
 
+### Rooms
+
 ```xml
 <!-- into a 'part' element -->
 <allowedRooms sessionRooms="single">
@@ -261,6 +267,8 @@ In the example above, the sessions should take place in one room among `room-h1`
 Int the main example at the top of the section, the lecture (part id `course-1-lecture`) takes place in one room and is broadcasted in another one.
 That is why the session should take place in several rooms among the ones that have this type of equipment.
 The model does not know that rooms `room-a1` and `room-a2` can handle these sessions, but the university has the information and thus can filter the rooms to affect them to the part.
+
+### Teachers
 
 ```xml
 <!-- into a 'part' element (with 8 sessions and 3 classes) -->
