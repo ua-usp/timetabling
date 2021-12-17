@@ -391,3 +391,62 @@ Here the `forbiddenSlots` defines a forbidden time frame from the `start` slot t
 The slots here are global slots, computed thanks to the problem time frame (`nrWeeks`, `nrDaysPerWeek` and `nrSlotsPerDay`).
 
 ## Solution
+
+The USP problem modelization includes the modelization of the solution.
+The solution is split into two elements: the first one is the student sectioned into groups, the second one is the affectation of each resources to sessions.
+
+```xml
+<!-- into the root element 'timetabling' -->
+<solution>
+	<groups>
+		<!-- ... -->
+	</groups>
+	
+	<sessions>
+		<!-- ... -->
+	</sessions>
+</solution>
+```
+
+### Groups
+
+The groups are the solutions of the student sectioning.
+According to the students subscriptions and the class hierarchy, each student is sectioned to a group.
+A group of students has a size (`headCount`) and cannot be subdivised.
+Students of a same group follow the same courses: they are in the same classes.
+The class sectioning is done with respect to the max headcount and the hiearchy of the classes.
+
+```xml
+<!-- into the 'solution' element -->
+<groups>
+	<group id="group-1" headCount="18">
+		<students>
+			<student refId="student-1" />
+			<student refId="student-2" />
+			<student refId="student-5" />
+			<!-- ... -->
+		</students>
+		
+		<classes>
+			<class refId="course-1-lecture-1" />
+			<class refId="course-1-tutorial-1" />
+			<class refId="course-1-practice-1" />
+			<!-- ... -->
+		</classes>
+	</group>
+</groups>
+```
+
+In this example, the group `group-1` has 18 students (`student-1`, `student-2`, `student-5` and others) and all those students are sectioned to the classes `course-1-lecture-1`, `course-1-tutorial-1` and `course-1-practice-1` and others.
+The 18 students subscribed to the same course, here we can see they subscribed to `course-1` since they are sectioned to the classes of `course-1`.
+Since they are sectioned to the class `course-1-practice-1`, due to the class hierarchy, they were sectioned to the class `course-1-tutorial-1` and then the class `course-1-lecture-1`.
+
+### Sessions
+
+```xml
+<!-- into the 'solution' element -->
+<sessions>
+	<session class="course-1-lecture-1" rank="1" slot="480" rooms="room-a1,room-a2" teachers="teacher-1" />
+</sessions>
+```
+
