@@ -311,4 +311,83 @@ As every courses and resources of a USP problem, students are identified by an i
 
 ## Rules
 
+The definition of the resources is just the declaration of the different resources.
+The definition of the courses filters the use of the resources for a specific course.
+Rules are here to define the constraints of courses and resources, and the constraints between courses and resources.
+
+The [catalog of constraints](catalog_constraints.md) list all the constraints that can be used in a rule.
+Many types of constraints are proposed to express rules that are time-related but also resource-related (allocation, distribution).
+Below we present three examples of rules using three different constraints.
+
+The constraint of a rule is applied to tuples of sessions.
+The sessions are not explicitly defined in the model.
+To select a set of sessions, we can use the course or resources linked to the sessions.
+Each part of a course has a number of sessions, thus each session is numbered and can be selected thanks to a mask (e.g. 1st, 2nd and 3rd session).
+
+Below are three examples of rules with different constraints.
+
+```xml
+<!-- into the 'rules' element -->
+<rule>
+	<sessions groupBy="class">
+		<filter type="part" attributeName="label" in="Practice" />
+	</sessions>
+	
+	<constraint name="weekly" type="hard">
+	</constraint>
+</rule>
+```
+
+This first rule is used to force the practice sessions of each class to be weekly.
+We explain below how the rule is built.
+
+The first step is to build the tuples of sessions to which apply the constraint (`<sessions>`).
+We want to select sessions for each class (`groupBy="class"`) but not for all courses, we want to filter the sessions to have only the ones of a practice part (`<filter>`).
+Here the filter is done by selecting a label, meaning that all the parts labelled with `Practice` are selected.
+
+```xml
+<!-- into the 'rules' element -->
+<rule>
+	<sessions groupBy="class" sessionMask="3">
+		<filter type="part" attributeName="id" in="course-1-lecture" />
+	</sessions>
+	<sessions groupBy="class" sessionMask="1">
+		<filter type="part" attributeName="id" in="course-1-tutorial" />
+	</sessions>
+	
+	<constraint name="sequenced" type="hard">
+	</constraint>
+</rule>
+```
+
+This second rule expresses the fact that the tutorials of `course-1` should not begin before the third session of the lecture is ended.
+
+In this example, we need to create two tuples of sessions: the third (`sessionMask="3"`) session of the lecture, and the first (`sessionMask="1"`) sessions of each class (`groupBy="class"`) of the tutorials.
+Here the filters are done by selecting identifiers, meaning that only those specific parts are selected.
+
+```xml
+<!-- into the 'rules' element -->
+<rule>
+	<sessions groupBy="teacher" attributeName="id" in="teacher-1">
+	</sessions>
+	
+	<constraint name="forbiddenSlots" type="hard">
+		<parameters>
+			<parameter type="slot" name="first">52320</parameter> <!-- Week 2, Tuesday, 08:00 -->
+			<parameter type="slot" name="last">52440</parameter> <!-- Week 2, Tuesday, 10:00 -->
+		</parameters>
+	</constraint>
+</rule>
+```
+
+This third rule forbids `teacher-1` to teach the Tuesday of the second week between 08:00 and 10:00 (a doctor appointment for example).
+
+Here the selection of the sessions is done by selecting the courses thanks to a resource, a teacher in this case.
+The mechanism is different since we don't know which session the teacher will teach before the resolution.
+The tuple of sessions created will then contain all the session that the teacher can teach, but the constraint will be apply only to the sessions finally assigned to the teacher.
+
+The other examples used constraints that do not require parameters.
+Here the `forbiddenSlots` defines a forbidden time frame from the `start` slot to the `last` slot (both included).
+The slots here are global slots, computed thanks to the problem time frame (`nrWeeks`, `nrDaysPerWeek` and `nrSlotsPerDay`).
+
 ## Solution
