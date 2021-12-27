@@ -443,10 +443,18 @@ Since they are sectioned to the class `course-1-practice-1`, due to the class hi
 
 ### Sessions
 
+The sessions are the heart of the solution: they are events in the calendar and they link all the resources together.
+A session can be associated with a course and students _via_ the classes.
+A class being a set of sessions of the same part of a course for the same groups of students.
+A session can also be associated with time and space _via_ the slot and the rooms.
+Eventually, a session can be associated with teachers.
+
 ```xml
 <!-- into the 'solution' element -->
 <sessions>
 	<session class="course-1-lecture-1" rank="1" slot="480" rooms="room-a1,room-a2" teachers="teacher-1" />
 </sessions>
 ```
+
+In the example above, the first session of the `course-1-lecture-1` class is the Monday of the first week at 08:00 (`slot="480"`) in rooms `room-a1` and `room-a2` with `teacher-1`.
 
