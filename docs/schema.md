@@ -345,6 +345,18 @@ The first step is to build the tuples of sessions to which apply the constraint 
 We want to select sessions for each class (`groupBy="class"`) but not for all courses, we want to filter the sessions to have only the ones of a practice part (`<filter>`).
 Here the filter is done by selecting a label, meaning that all the parts labelled with `Practice` are selected.
 
+The second step is to associate the tuples of sessions with a constraint (`<constraint>`) that can be hard or soft (`type`).
+
+The generated constraints of this example are:
+```
+weekly(HARD, <course-1-practice-1:1, ..., course-1-practice-1:8>)
+weekly(HARD, <course-1-practice-2:1, ..., course-1-practice-2:8>)
+weekly(HARD, <course-1-practice-3:1, ..., course-1-practice-3:8>)
+```
+Where a session is denoted by its class and its session rank : `class:rank`.
+In this example, three constraints are generated, since there is one part with `Practice` as a label and that this part has three classes.
+The constraints are associated with all the sessions (from 1 to 8) of the class.
+
 ```xml
 <!-- into the 'rules' element -->
 <rule>
@@ -364,6 +376,17 @@ This second rule expresses the fact that the tutorials of `course-1` should not 
 
 In this example, we need to create two tuples of sessions: the third (`sessionMask="3"`) session of the lecture, and the first (`sessionMask="1"`) sessions of each class (`groupBy="class"`) of the tutorials.
 Here the filters are done by selecting identifiers, meaning that only those specific parts are selected.
+
+The generated constraints of this example are:
+```
+sequenced(HARD, <course-1-lecture-1:3>, <course-1-tutorial-1:1>)
+sequenced(HARD, <course-1-lecture-1:3>, <course-1-tutorial-2:1>)
+```
+In this example, the first `<sessions>` selects the third sessions of the lecture classes.
+Since there is only one class of lecture, it's the `course-1-lecture-1:3` session.
+The second `<sessions>` selects the first sessions of the tutorial classes.
+The two sessions fitting the filter are `course-1-tutorial-1:1` and `course-1-tutorial-2:1`.
+The `sequenced` constraint is generated for each pair of the cartesian product of the two sets of sessions.
 
 ```xml
 <!-- into the 'rules' element -->
@@ -389,6 +412,13 @@ The tuple of sessions created will then contain all the session that the teacher
 The other examples used constraints that do not require parameters.
 Here the `forbiddenSlots` defines a forbidden time frame from the `start` slot to the `last` slot (both included).
 The slots here are global slots, computed thanks to the problem time frame (`nrWeeks`, `nrDaysPerWeek` and `nrSlotsPerDay`).
+
+The generated constraint of this example is:
+```
+forbiddenSlots(HARD, teacher-1, <course-1-lecture-1:1, ..., course-1-practice-3:8>, 52320, 52440)
+```
+The constraint is associated with all the sessions of all the courses of our example, since `teacher-1` is involved into all the course parts.
+In order to apply the constraint only to sessions that are eventually taught by `teacher-1`, we give `teacher-1` as a parameter of the constraint.
 
 ## Solution
 
@@ -444,10 +474,11 @@ Since they are sectioned to the class `course-1-practice-1`, due to the class hi
 ### Sessions
 
 The sessions are the heart of the solution: they are events in the calendar and they link all the resources together.
-A session can be associated with a course and students _via_ the classes.
+A session can be associated with a course _via_ the classes.
 A class being a set of sessions of the same part of a course for the same groups of students.
 A session can also be associated with time and space _via_ the slot and the rooms.
 Eventually, a session can be associated with teachers.
+The students attending a session belong to the groups that are computed and assigned to the class of the session.
 
 ```xml
 <!-- into the 'solution' element -->
