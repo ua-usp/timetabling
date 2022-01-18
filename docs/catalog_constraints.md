@@ -1,9 +1,7 @@
 ---
 title: "USP Constraint Catalog"
 layout: single
-toc: true
-toc_sticky: true
-permalink: /Catalog
+permalink: /catalog
 ---
 
 ##Constraint Catalog
