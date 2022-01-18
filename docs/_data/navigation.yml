@@ -3,3 +3,5 @@ main:
     url: "/"
   - title: "Schema"
     url: "/schema"
+  - title: "Catalog"
+    url: "/Catalog"

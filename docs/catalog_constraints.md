@@ -3,7 +3,7 @@ title: "USP Constraint Catalog"
 layout: single
 toc: true
 toc_sticky: true
-permalink: /constraint_catalog
+permalink: /Catalog
 ---
 
 ##Constraint Catalog
