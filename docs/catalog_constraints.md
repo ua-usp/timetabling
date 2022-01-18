@@ -14,7 +14,7 @@ permalink: /Catalog
 |Allocation group flex| No  | max 1  | Part  | non  | Domain allocation for class and group|
 |Allocation Room size  | No  | max 1  | Class  | Non  | Allocate number of room are demand to the part|
 |Assign room  | rooms-> 1 (1,tuple:rooms) | max 1 | All | Oui | Assign a set of room to session in entry|
-|At most daily |count -> 1 (1:slot)|| first -> 1 (1:slot) || last -> 1 (1:slot)| max 1 | Course, Part, Class, Teacher, Room, Student | oui | Limit a number of session in intervalle|
+|At most daily |count -> 1 (1:slot), first -> 1 (1:slot), last -> 1 (1:slot)| max 1 | Course, Part, Class, Teacher, Room, Student | oui | Limit a number of session in intervalle|
 |At most weekly| count -> 1 (1:slot)| max 1| Course, Part, Class, Teacher, Room, Student | oui | Limit a number of session in intervalle |
 |Connected room| roomChain -> min 1,max n (tuple:room)[ordered] ​| max 1 |  Course, Part, Class, Teacher, Room, Student | oui | Room are connected|
 |Course no overlap two day | No | max 1 | Sessions | non | A sessions duration dont overlap into 2 day of week|--> pas sur 
@@ -24,9 +24,9 @@ permalink: /Catalog
 |Domain class group | No | max 1 | Class | non | A subset of group to classes|
 |Domain sessuion teacher | No | max 1 | sessions | non | a subset of teacher for sessions|
 |Domain class room | No | max 1 | Class | non | a subset of room for class|
-|Forbidden Slot | first -> 1 (1:slot)|| last -> 1 (1:slot) | max 1 | all | Oui | A session cant take slot in intervalle |
+|Forbidden Slot | first -> 1 (1:slot), last -> 1 (1:slot) | max 1 | all | Oui | A session cant take slot in intervalle |
 |Implicite sequenced sessions | No | max 1 | class | non | All sessions in classes are sequenced|
-|Not consecutive rooms |  minGap -> 1 (1:slot)|| rooms-> min 1, max n (2,k:room)| max 1 | all | noui | If 2 sessions have rooms in tuple then need a gap of mingap to walk from one the other|
+|Not consecutive rooms |  minGap -> 1 (1:slot), rooms-> min 1, max n (2,k:room)| max 1 | all | noui | If 2 sessions have rooms in tuple then need a gap of mingap to walk from one the other|
 |Part Schedule | No | max 1 | all | oui | we allowed time part value|
 |Same daily slot |No | max 1,n | all | oui | all slots of  selected sessions  are equal to the same daily slot|
 |Same day  |No | max 1,n | all | oui | all slots of  selected sessions  are equal to the same day|
