@@ -7,9 +7,8 @@ permalink: /Catalog
 ---
 
 ##Constraint Catalog
-Course, Part, Class, Session, Teacher, Room, Student
 
-|Name | parameter | arity |  entry | Type | Condtionnel | Explication|
+|Name | parameter (size:type) | arity |  entry | Condtionnel | Explication|
 |:------|:----------|:------------|:------------------|:-------------|:---------------|:-----------------|
 |Allocate slot | slot -> 1 (1,tuple?:slots) | max 1 | All | Oui | Allcate a slot or slot tuple to a session| 
 |Allocation group flex| No  | max 1  | Part  | non  | Domain allocation for class and group|
