@@ -7,7 +7,7 @@ permalink: /catalog
 ##Constraint Catalog
 
 |Name | Entity | Arity |  Parameter (name,type,size) | Conditional | Explication | Tag |
-|:------|:------------------|:------------|:------------------|:-------------|:---------------|:---------------------|:--------|
+|:------|:------------------|:------------|:------------------|:-------------|:---------------|:---------------------|
 |assign_slot | All | max 1 | slot -> 1 (1,tuple?:slots)   | yes | Assign a slot or slot tuple to a session|time|
 |allocation_group|Part| max 1  | no  | no  | Domain allocation for class with group in the solution|group, domain|
 |assign_room  | Course, Part, Class, Sessions, Teacher, Student |max 1 |rooms-> 1 (1,tuple:rooms) | yes | Assign a set of room to session in entry|room, instanciation|
