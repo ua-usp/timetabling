@@ -25,10 +25,10 @@ permalink: /catalog
 </tr>
 </thead>
 <tbody>
-<tr><td>assign_slot </td><td> All </td><td> max 1 </td><td> slot </td> <td>1</td> <td>min 1</td> <td>:slots  </td><td> yes </td><td> Assign a slot or slot tuple to a session</td><td>time</td></tr>
+<tr><td>assign_slot </td><td> All </td><td> max 1 </td><td> slot </td> <td>1</td> <td>min 1</td> <td> slots  </td><td> yes </td><td> Assign a slot or slot tuple to a session</td><td>time</td></tr>
 <tr><td>allocation_group</td><td>Part</td><td> max 1  </td><td colspan="4"> no  </td><td> no  </td><td> Domain allocation for class with group in the solution</td><td>group, domain</td></tr>
 <tr><td>assign_room  </td><td> Course, Part, Class, Sessions, Teacher, Student </td><td>max 1 </td><td>rooms</td><td> 1 </td><td> min 1</td><td>rooms </td><td> yes </td><td> Assign a set of room to session in entry</td><td>room, instanciation</td></tr>
-<tr><td rowspan="3">at_most_daily </td><td rowspan="3"> Course, Part, Class, Teacher, Room, Student </td><td rowspan="3"> max 1 </td><td >count</td><td> 1</td> <td>max 1</td><td>slot</td>, </td><td rowspan="3"> yes </td><td rowspan="3"> Limit a number of session in intervalle</td><td rowspan="3">time, repartition</td></tr>
+<tr><td rowspan="3">at_most_daily </td><td rowspan="3"> Course, Part, Class, Teacher, Room, Student </td><td rowspan="3"> max 1 </td><td >count</td><td> 1</td> <td>max 1</td><td>slot</td><td rowspan="3"> yes </td><td rowspan="3"> Limit a number of session in intervalle</td><td rowspan="3">time, repartition</td></tr>
 <tr> <td>first</td> <td>max 1</td><td>max 1</td><td>slot</td> </tr>
 <tr> <td>last</td><td>max 1</td><td>max 1</td><td>slot</td> </tr>
 <tr><td>at_most_weekly </td><td> Course, Part, Class, Teacher, Room, Student </td><td> max 1 </td><td> count</td><td>1</td> <td>1</td><td>slot</td><td> yes </td><td> Limit a number of session in intervalle </td><td>time,repartition</td></tr>
@@ -53,7 +53,7 @@ permalink: /catalog
 <tr><td>same_week </td><td> all </td><td> min 1, max n </td><td colspan="4"> no </td><td> yes </td><td> all slots of  selected sessions  are equal to the same week </td><td> time, repartition, domain</td></tr>
 <tr><td>same_weeklyday </td><td> all </td><td> min 1, max n </td><td colspan="4"> no </td><td> yes </td><td> all slots of  selected sessions  are equal to the same weekly day </td><td> time, repartition, domain</td></tr>
 <tr><td>same_weeklyslot </td><td> all </td><td> min 1, max n </td><td colspan="4"> no </td><td> yes </td><td> all slots of  selected sessions  are equal to the same weekly slot </td><td> time, repartition, domain</td></tr>
-<tr><td>sequenced </td><td> Course, Part, Class, Session </td><td> min 1, max n </td><td colspan="4"> no </td><td> no </td><td> Sessions are ordered in the horizon slot (i.e i < j slot[session[i]] < slot[session[j]] </td><td>session, orchestration</td></tr>
+<tr><td>sequenced </td><td> Course, Part, Class, Session </td><td> min 1, max n </td><td colspan="4"> no </td><td> no </td><td> Sessions are ordered in the horizon slot (i.e i &lt; j slot[session[i]] &lt; slot[session[j]] </td><td>session, orchestration</td></tr>
 <tr><td>teacher_repartition </td><td> Class </td><td> min 2 </td><td> class-<i>i</i></td> <td> min 2</td> <td>1</td> <td>Option  </td><td> no </td><td> repartition of teacher into a differentes classes of part </td><td> repartition, teacher, session</td></tr>
 <tr><td>weekly </td><td> Course, Part, Class, Session </td><td> min 1, max n </td><td colspan="4" > no </td><td> no </td><td> A session tuple is weekly </td><td> repartition, time, orchestration</td></tr>
 </tbody>
