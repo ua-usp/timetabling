@@ -8,21 +8,8 @@ permalink: /catalog
 
 <table>
 <thead>
-<tr>
-<th rowspan="2">Name </th>
-<th rowspan="2"> Entity </th>
-<th rowspan="2"> Arity </th>
-<th colspan="4">  Parameter  </th>
-<th rowspan="2"> Conditional </th>
-<th rowspan="2"> Explication </th>
-<th rowspan="2"> Tag </th>
-</tr>
-<tr>
-<th>name</th>
-<th>number</th>
-<th>type</th>
-<th>size</th>
-</tr>
+<tr><th rowspan="2">Name </th><th rowspan="2"> Entity </th><th rowspan="2"> Arity </th><th colspan="4">  Parameter  </th><th rowspan="2"> Conditional </th><th rowspan="2"> Explication </th><th rowspan="2"> Tag </th></tr>
+<tr><th>name</th><th>number</th><th>type</th<th>size</th></tr>
 </thead>
 <tbody>
 <tr><td>assign_slot </td><td> All </td><td> max 1 </td><td> slot </td> <td>1</td> <td>min 1</td> <td> slots  </td><td> yes </td><td> Assign a slot or slot tuple to a session</td><td>time</td></tr>
@@ -55,9 +42,7 @@ permalink: /catalog
 <tr><td>same_weeklyslot </td><td> all </td><td> min 1</td><td colspan="4"> no </td><td> yes </td><td> all slots of  selected sessions  are equal to the same weekly slot </td><td> time, repartition, domain</td></tr>
 <tr><td>sequenced </td><td> Course, Part, Class, Session </td><td> min 1</td><td colspan="4"> no </td><td> no </td><td> Sessions are ordered in the horizon slot (i.e i &lt; j slot[session[i]] &lt; slot[session[j]] </td><td>session, orchestration</td></tr>
 <tr><td>teacher_repartition </td><td> Class </td><td> min 2 </td><td> class-<i>i</i></td> <td> min 2</td> <td>1</td> <td>Option  </td><td> no </td><td> repartition of teacher into a differentes classes of part </td><td> repartition, teacher, session</td></tr>
-<tr><td>weekly </td><td> Course, Part, Class, Session </td><td> min 1</td><td colspan="4"> no </td><td> no </td><td> A session tuple is weekly </td><td> repartition, time, orchestration</td></tr>
-</tbody>
-</table>
+<tr><td>weekly </td><td> Course, Part, Class, Session </td><td> min 1</td><td colspan="4"> no </td><td> no </td><td> A session tuple is weekly </td><td> repartition, time, orchestration</td></tr></tbody></table>
 
 
 
