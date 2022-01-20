@@ -59,11 +59,3 @@ permalink: /catalog
 </tbody>
 </table>
 
-
-## Constraint camoufled
-
-
-|Name | Entity | Conditional | Explication | Tag|
-|:--------|:--------|:--------|:--------|:--------|
-|size_room_domain | Class | no | Allocate number of room are demand to the part | domain, room|
-|session_no_overlap_two_day | Session | no | A sessions duration dont overlap into 2 day of week| domain, time, overlap| 
