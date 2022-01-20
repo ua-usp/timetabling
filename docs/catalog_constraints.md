@@ -9,8 +9,7 @@ permalink: /catalog
 <table>
 <thead>
 <tr><th rowspan="2">Name </th><th rowspan="2"> Entity </th><th rowspan="2"> Arity </th><th colspan="4">  Parameter  </th><th rowspan="2"> Conditional </th><th rowspan="2"> Explication </th><th rowspan="2"> Tag </th></tr>
-<tr><th>name</th><th>number</th><th>type</th<th>size</th></tr>
-</thead>
+<tr><th>name</th><th>number</th><th>type</th><th>size</th></tr></thead>
 <tbody>
 <tr><td>assign_slot </td><td> All </td><td> max 1 </td><td> slot </td> <td>1</td> <td>min 1</td> <td> slots  </td><td> yes </td><td> Assign a slot or slot tuple to a session</td><td>time</td></tr>
 <tr><td>allocation_group</td><td>Part</td><td> max 1  </td><td colspan="4"> no  </td><td> no  </td><td> Domain allocation for class with group in the solution</td><td>group, domain</td></tr>
