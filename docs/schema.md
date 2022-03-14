@@ -396,8 +396,8 @@ The `sequenced` constraint is generated for each pair of the cartesian product o
 	
 	<constraint name="forbiddenSlots" type="hard">
 		<parameters>
-			<parameter type="slot" name="first">52320</parameter> <!-- Week 2, Tuesday, 08:00 -->
-			<parameter type="slot" name="last">52440</parameter> <!-- Week 2, Tuesday, 10:00 -->
+			<parameter type="slot" name="first">9120</parameter> <!-- Week 2, Tuesday, 08:00 -->
+			<parameter type="slot" name="last">9240</parameter> <!-- Week 2, Tuesday, 10:00 -->
 		</parameters>
 	</constraint>
 </rule>
