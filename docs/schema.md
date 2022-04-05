@@ -9,6 +9,8 @@ permalink: /schema
 USP is defined by an XML Schema.
 This schema represents both an instance and its solution.
 
+The schema is implemented into an XSD file that can be found [here](/assets/usp_timetabling_v0_2.xsd).
+
 ```xml
 <timetabling name="main_structure" nrWeeks="12" nrDaysPerWeek="5" nrSlotsPerDay="1440">
     <rooms>

@@ -1,0 +1,2579 @@
+<?xml version="1.0"?>
+<timetabling xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="usp_timetabling_v0_2.xsd" name="ua_l3info_2021" nrWeeks="12" nrDaysPerWeek="5" nrSlotsPerDay="1440">
+  <rooms>
+    <room id="AMPHI-A" capacity="90" label="BUILDING-A"/>
+    <room id="AMPHI-B" capacity="286" label="BUILDING-A"/>
+    <room id="L201" capacity="46" label="BUILDING-L"/>
+    <room id="L202" capacity="46" label="BUILDING-L"/>
+    <room id="L206" capacity="28" label="BUILDING-L"/>
+    <room id="H001" capacity="20" label="BUILDING-H"/>
+    <room id="H002" capacity="42" label="BUILDING-H"/>
+    <room id="H003" capacity="38" label="BUILDING-H"/>
+  </rooms>
+  <teachers>
+    <teacher id="Teacher 1" label="ENGLISH"/>
+    <teacher id="Teacher 2" label="COMPUTER-SCIENCES-DEPT"/>
+    <teacher id="Teacher 3" label="COMPUTER-SCIENCES-DEPT"/>
+    <teacher id="Teacher 4" label="COMPUTER-SCIENCES-DEPT"/>
+    <teacher id="Teacher 5" label="COMPUTER-SCIENCES-DEPT"/>
+    <teacher id="Teacher 6" label="COMPUTER-SCIENCES-DEPT"/>
+    <teacher id="Teacher 7" label="COMPUTER-SCIENCES-DEPT"/>
+    <teacher id="Teacher 8" label="COMPUTER-SCIENCES-DEPT"/>
+    <teacher id="Teacher 9" label="COMPUTER-SCIENCES-DEPT"/>
+    <teacher id="Teacher 10" label="COMPUTER-SCIENCES-DEPT"/>
+    <teacher id="Teacher 11" label="COMPUTER-SCIENCES-DEPT"/>
+    <teacher id="Teacher 12" label="COMPUTER-SCIENCES-DEPT"/>
+  </teachers>
+  <courses>
+    <course id="English">
+      <part id="English-Les" nrSessions="8" label="LESSON">
+        <classes>
+          <class id="English-Les-1" maxHeadCount="30"/>
+          <class id="English-Les-2" maxHeadCount="30"/>
+          <class id="English-Les-3" maxHeadCount="30"/>
+        </classes>
+        <allowedSlots sessionLength="120">
+          <!-- 2h00 -->
+          <!-- 08:00, 08:50, 09:30, 10:20, 11:00, 11:50, 12:30, 13:20, 14:00, 14:50, 15:30, 16:20, 17:00 -->
+          <dailySlots>480,530,570,620,660,710,750,800,840,890,930,980,1020</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="L201"/>
+          <room refId="L202"/>
+          <room refId="L206"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 1" nrSessions="24"/>
+        </allowedTeachers>
+      </part>
+      <part id="English-Eval" nrSessions="1" label="EVAL">
+        <classes>
+          <class id="English-Eval-1" maxHeadCount="20"/>
+        </classes>
+        <allowedSlots sessionLength="120">
+          <!-- 2h00 -->
+          <!-- 08:00, 08:50, 09:30, 10:20, 11:00, 11:50, 12:30, 13:20, 14:00, 14:50, 15:30, 16:20, 17:00 -->
+          <dailySlots>480,530,570,620,660,710,750,800,840,890,930,980,1020</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="AMPHI-A"/>
+          <room refId="AMPHI-B"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 1" nrSessions="1"/>
+        </allowedTeachers>
+      </part>
+    </course>
+    <course id="Databases-part2">
+      <part id="Databases-part2-Lec" nrSessions="8" label="LECTURE">
+        <classes>
+          <class id="Databases-part2-Lec-1" maxHeadCount="80"/>
+        </classes>
+        <allowedSlots sessionLength="80">
+          <!-- 1h20 -->
+          <!-- 08:00, 09:30, 11:00, 12:30, 14:00, 15:30, 17:00, 18:30 -->
+          <dailySlots>480,570,660,750,840,930,1020,1110</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="AMPHI-A"/>
+          <room refId="AMPHI-B"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 2" nrSessions="8"/>
+        </allowedTeachers>
+      </part>
+      <part id="Databases-part2-Tut" nrSessions="9" label="TUTORIAL">
+        <classes>
+          <class id="Databases-part2-Tut-1" maxHeadCount="40" parent="Databases-part2-Lec-1"/>
+          <class id="Databases-part2-Tut-2" maxHeadCount="40" parent="Databases-part2-Lec-1"/>
+        </classes>
+        <allowedSlots sessionLength="80">
+          <!-- 1h20 -->
+          <!-- 08:00, 09:30, 11:00, 12:30, 14:00, 15:30, 17:00, 18:30 -->
+          <dailySlots>480,570,660,750,840,930,1020,1110</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="L201"/>
+          <room refId="L202"/>
+          <room refId="L206"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 2" nrSessions="18"/>
+        </allowedTeachers>
+      </part>
+      <part id="Databases-part2-Lab" nrSessions="7" label="LABORATORY">
+        <classes>
+          <class id="Databases-part2-Lab-1" maxHeadCount="20" parent="Databases-part2-Tut-1"/>
+          <class id="Databases-part2-Lab-2" maxHeadCount="20" parent="Databases-part2-Tut-2"/>
+          <class id="Databases-part2-Lab-3" maxHeadCount="20" parent="Databases-part2-Tut-1"/>
+        </classes>
+        <allowedSlots sessionLength="170">
+          <!-- 2x(1h20) + 10min break -->
+          <!-- 08:00, 09:30, 12:30, 14:00, 15:30, 17:00 -->
+          <dailySlots>480,570,750,840,930,1020</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 2" nrSessions="14"/>
+          <teacher refId="Teacher 3" nrSessions="7"/>
+        </allowedTeachers>
+      </part>
+      <part id="Databases-part2-LabEval" nrSessions="1" label="LABORATORY,EVAL">
+        <classes>
+          <class id="Databases-part2-LabEval-1" maxHeadCount="20" parent="Databases-part2-Lab-1"/>
+          <class id="Databases-part2-LabEval-2" maxHeadCount="20" parent="Databases-part2-Lab-2"/>
+          <class id="Databases-part2-LabEval-3" maxHeadCount="20" parent="Databases-part2-Lab-3"/>
+        </classes>
+        <allowedSlots sessionLength="170">
+          <!-- 2x(1h20) + 10min break -->
+          <!-- 08:00, 09:30, 12:30, 14:00, 15:30, 17:00 -->
+          <dailySlots>480,570,750,840,930,1020</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="multiple">
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 2" nrSessions="1"/>
+          <teacher refId="Teacher 3" nrSessions="1"/>
+          <teacher refId="Teacher 4" nrSessions="1"/>
+        </allowedTeachers>
+      </part>
+    </course>
+    <course id="Web-Development">
+      <part id="Web-Development-Lec" nrSessions="12" label="LECTURE">
+        <classes>
+          <class id="Web-Development-Lec-1" maxHeadCount="80"/>
+        </classes>
+        <allowedSlots sessionLength="80">
+          <!-- 1h20 -->
+          <!-- 08:00, 09:30, 11:00, 12:30, 14:00, 15:30, 17:00, 18:30 -->
+          <dailySlots>480,570,660,750,840,930,1020,1110</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="AMPHI-A"/>
+          <room refId="AMPHI-B"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 5" nrSessions="12"/>
+        </allowedTeachers>
+      </part>
+      <part id="Web-Development-Lab" nrSessions="8" label="LABORATORY">
+        <classes>
+          <class id="Web-Development-Lab-1" maxHeadCount="25" parent="Web-Development-Lec-1"/>
+          <class id="Web-Development-Lab-2" maxHeadCount="28" parent="Web-Development-Lec-1"/>
+          <class id="Web-Development-Lab-3" maxHeadCount="25" parent="Web-Development-Lec-1"/>
+        </classes>
+        <allowedSlots sessionLength="170">
+          <!-- 2x(1h20) + 10min break -->
+          <!-- 08:00, 09:30, 12:30, 14:00, 15:30, 17:00 -->
+          <dailySlots>480,570,750,840,930,1020</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 5" nrSessions="16"/>
+          <teacher refId="Teacher 6" nrSessions="8"/>
+        </allowedTeachers>
+      </part>
+      <part id="Web-Development-LabEval" nrSessions="1" label="LABORATORY,EVAL">
+        <classes>
+          <class id="Web-Development-LabEval-1" maxHeadCount="40" parent="Web-Development-Lab-1"/>
+          <class id="Web-Development-LabEval-2" maxHeadCount="40" parent="Web-Development-Lab-2"/>
+          <class id="Web-Development-LabEval-3" maxHeadCount="40" parent="Web-Development-Lab-3"/>
+        </classes>
+        <allowedSlots sessionLength="170">
+          <!-- 2x(1h20) + 10min break -->
+          <!-- 08:00, 09:30, 12:30, 14:00, 15:30, 17:00 -->
+          <dailySlots>480,570,750,840,930,1020</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 5" nrSessions="1"/>
+          <teacher refId="Teacher 6" nrSessions="1"/>
+          <teacher refId="Teacher 7" nrSessions="1"/>
+        </allowedTeachers>
+      </part>
+    </course>
+    <course id="CGI" label="OPT">
+      <part id="CGI-Lec" nrSessions="3" label="LECTURE">
+        <classes>
+          <class id="CGI-Lec-1" maxHeadCount="80"/>
+        </classes>
+        <allowedSlots sessionLength="170">
+          <!-- 2x(1h20) + 10min break -->
+          <!-- 08:00, 09:30, 12:30, 14:00, 15:30, 17:00 -->
+          <dailySlots>480,570,750,840,930,1020</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="AMPHI-A"/>
+          <room refId="AMPHI-B"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 10" nrSessions="3"/>
+        </allowedTeachers>
+      </part>
+      <part id="CGI-Lab" nrSessions="8" label="LABORATORY">
+        <classes>
+          <class id="CGI-Lab-1" maxHeadCount="40" parent="CGI-Lec-1"/>
+        </classes>
+        <allowedSlots sessionLength="170">
+          <!-- 2x(1h20) + 10min break -->
+          <!-- 08:00, 09:30, 12:30, 14:00, 15:30, 17:00 -->
+          <dailySlots>480,570,750,840,930,1020</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 10" nrSessions="8"/>
+        </allowedTeachers>
+      </part>
+    </course>
+    <course id="Python-data-analysis" label="OPT">
+      <part id="Python-data-analysis-Les" nrSessions="5" label="LESSON">
+        <classes>
+          <class id="Python-data-analysis-Les-1" maxHeadCount="40"/>
+        </classes>
+        <allowedSlots sessionLength="170">
+          <!-- 2x(1h20) + 10min break -->
+          <!-- 08:00, 09:30, 12:30, 14:00, 15:30, 17:00 -->
+          <dailySlots>480,570,750,840,930,1020</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 9" nrSessions="5"/>
+        </allowedTeachers>
+      </part>
+      <part id="Python-data-analysis-Lab" nrSessions="4" label="LABORATORY">
+        <classes>
+          <class id="Python-data-analysis-Lab-1" maxHeadCount="20" parent="Python-data-analysis-Les-1"/>
+          <class id="Python-data-analysis-Lab-2" maxHeadCount="20" parent="Python-data-analysis-Les-1"/>
+        </classes>
+        <allowedSlots sessionLength="170">
+          <!-- 2x(1h20) + 10min break -->
+          <!-- 08:00, 09:30, 12:30, 14:00, 15:30, 17:00 -->
+          <dailySlots>480,570,750,840,930,1020</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 9" nrSessions="8"/>
+        </allowedTeachers>
+      </part>
+    </course>
+    <course id="AI-algorithms" label="OPT">
+      <part id="AI-algorithms-Lec" nrSessions="2" label="LECTURE">
+        <classes>
+          <class id="AI-algorithms-Lec-1" maxHeadCount="80"/>
+        </classes>
+        <allowedSlots sessionLength="170">
+          <!-- 2x(1h20) + 10min break -->
+          <!-- 08:00, 09:30, 12:30, 14:00, 15:30, 17:00 -->
+          <dailySlots>480,570,750,840,930,1020</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="AMPHI-A"/>
+          <room refId="AMPHI-B"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 10" nrSessions="2"/>
+        </allowedTeachers>
+      </part>
+      <part id="AI-algorithms-Tut" nrSessions="2" label="TUTORIAL">
+        <classes>
+          <class id="AI-algorithms-Tut-1" maxHeadCount="40" parent="AI-algorithms-Lec-1"/>
+        </classes>
+        <allowedSlots sessionLength="170">
+          <!-- 2x(1h20) + 10min break -->
+          <!-- 08:00, 09:30, 12:30, 14:00, 15:30, 17:00 -->
+          <dailySlots>480,570,750,840,930,1020</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="AMPHI-A"/>
+          <room refId="AMPHI-B"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 8" nrSessions="2"/>
+        </allowedTeachers>
+      </part>
+      <part id="AI-algorithms-Lab" nrSessions="10" label="LABORATORY">
+        <classes>
+          <class id="AI-algorithms-Lab-1" maxHeadCount="20" parent="AI-algorithms-Tut-1"/>
+          <class id="AI-algorithms-Lab-2" maxHeadCount="20" parent="AI-algorithms-Tut-1"/>
+          <class id="AI-algorithms-Lab-3" maxHeadCount="20" parent="AI-algorithms-Tut-1"/>
+        </classes>
+        <allowedSlots sessionLength="80">
+          <!-- 1h20 -->
+          <!-- 08:00, 09:30, 11:00, 12:30, 14:00, 15:30, 17:00, 18:30 -->
+          <dailySlots>480,570,660,750,840,930,1020,1110</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H002"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 8" nrSessions="30"/>
+        </allowedTeachers>
+      </part>
+    </course>
+    <course id="Qt" label="OPT">
+      <part id="Qt-Lec" nrSessions="4" label="LECTURE">
+        <classes>
+          <class id="Qt-Lec-1" maxHeadCount="80"/>
+        </classes>
+        <allowedSlots sessionLength="80">
+          <!-- 1h20 -->
+          <!-- 08:00, 09:30, 11:00, 12:30, 14:00, 15:30, 17:00, 18:30 -->
+          <dailySlots>480,570,660,750,840,930,1020,1110</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="AMPHI-A"/>
+          <room refId="AMPHI-B"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 7" nrSessions="4"/>
+        </allowedTeachers>
+      </part>
+      <part id="Qt-Lab" nrSessions="7" label="LABORATORY">
+        <classes>
+          <class id="Qt-Lab-1" maxHeadCount="20" parent="Qt-Lec-1"/>
+          <class id="Qt-Lab-2" maxHeadCount="20" parent="Qt-Lec-1"/>
+        </classes>
+        <allowedSlots sessionLength="170">
+          <!-- 2x(1h20) + 10min break -->
+          <!-- 08:00, 09:30, 12:30, 14:00, 15:30, 17:00 -->
+          <dailySlots>480,570,750,840,930,1020</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 7" nrSessions="14"/>
+        </allowedTeachers>
+      </part>
+    </course>
+    <course id="Functional-programming">
+      <part id="Functional-programming-Lec" nrSessions="7" label="LECTURE">
+        <classes>
+          <class id="Functional-programming-Lec-1" maxHeadCount="80"/>
+        </classes>
+        <allowedSlots sessionLength="80">
+          <!-- 1h20 -->
+          <!-- 08:00, 09:30, 11:00, 12:30, 14:00, 15:30, 17:00, 18:30 -->
+          <dailySlots>480,570,660,750,840,930,1020,1110</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="AMPHI-A"/>
+          <room refId="AMPHI-B"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 11" nrSessions="7"/>
+        </allowedTeachers>
+      </part>
+      <part id="Functional-programming-Tut" nrSessions="4" label="TUTORIAL">
+        <classes>
+          <class id="Functional-programming-Tut-1" maxHeadCount="40" parent="Functional-programming-Lec-1"/>
+          <class id="Functional-programming-Tut-2" maxHeadCount="40" parent="Functional-programming-Lec-1"/>
+        </classes>
+        <allowedSlots sessionLength="80">
+          <!-- 1h20 -->
+          <!-- 08:00, 09:30, 11:00, 12:30, 14:00, 15:30, 17:00, 18:30 -->
+          <dailySlots>480,570,660,750,840,930,1020,1110</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="L201"/>
+          <room refId="L202"/>
+          <room refId="L206"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 11" nrSessions="8"/>
+        </allowedTeachers>
+      </part>
+      <part id="Functional-programming-Lab" nrSessions="4" label="LABORATORY">
+        <classes>
+          <class id="Functional-programming-Lab-1" maxHeadCount="20" parent="Functional-programming-Tut-1"/>
+          <class id="Functional-programming-Lab-2" maxHeadCount="20" parent="Functional-programming-Tut-2"/>
+          <class id="Functional-programming-Lab-3" maxHeadCount="25" parent="Functional-programming-Tut-1"/>
+        </classes>
+        <allowedSlots sessionLength="170">
+          <!-- 2x(1h20) + 10min break -->
+          <!-- 08:00, 09:30, 12:30, 14:00, 15:30, 17:00 -->
+          <dailySlots>480,570,750,840,930,1020</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 11" nrSessions="4"/>
+          <teacher refId="Teacher 12" nrSessions="4"/>
+          <teacher refId="Teacher 7" nrSessions="4"/>
+        </allowedTeachers>
+      </part>
+    </course>
+    <course id="Logic-programming">
+      <part id="Logic-programming-Lec" nrSessions="6" label="LECTURE">
+        <classes>
+          <class id="Logic-programming-Lec-1" maxHeadCount="80"/>
+        </classes>
+        <allowedSlots sessionLength="80">
+          <!-- 1h20 -->
+          <!-- 08:00, 09:30, 11:00, 12:30, 14:00, 15:30, 17:00, 18:30 -->
+          <dailySlots>480,570,660,750,840,930,1020,1110</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="AMPHI-A"/>
+          <room refId="AMPHI-B"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 10" nrSessions="6"/>
+        </allowedTeachers>
+      </part>
+      <part id="Logic-programming-Tut" nrSessions="3" label="TUTORIAL">
+        <classes>
+          <class id="Logic-programming-Tut-1" maxHeadCount="40" parent="Logic-programming-Lec-1"/>
+          <class id="Logic-programming-Tut-2" maxHeadCount="40" parent="Logic-programming-Lec-1"/>
+        </classes>
+        <allowedSlots sessionLength="80">
+          <!-- 1h20 -->
+          <!-- 08:00, 09:30, 11:00, 12:30, 14:00, 15:30, 17:00, 18:30 -->
+          <dailySlots>480,570,660,750,840,930,1020,1110</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 10" nrSessions="6"/>
+        </allowedTeachers>
+      </part>
+      <part id="Logic-programming-Lab" nrSessions="4" label="LABORATORY">
+        <classes>
+          <class id="Logic-programming-Lab-1" maxHeadCount="20" parent="Logic-programming-Tut-1"/>
+          <class id="Logic-programming-Lab-2" maxHeadCount="20" parent="Logic-programming-Tut-2"/>
+          <class id="Logic-programming-Lab-3" maxHeadCount="20" parent="Logic-programming-Tut-1"/>
+        </classes>
+        <allowedSlots sessionLength="170">
+          <!-- 2x(1h20) + 10min break -->
+          <!-- 08:00, 09:30, 12:30, 14:00, 15:30, 17:00 -->
+          <dailySlots>480,570,750,840,930,1020</dailySlots>
+          <days>1-5</days>
+          <!-- Mon to Fri -->
+          <weeks>1-12</weeks>
+          <!-- all the weeks -->
+        </allowedSlots>
+        <allowedRooms sessionRooms="single">
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </allowedRooms>
+        <allowedTeachers sessionTeachers="1">
+          <teacher refId="Teacher 10" nrSessions="12"/>
+        </allowedTeachers>
+      </part>
+    </course>
+  </courses>
+  <students>
+    <student id="student 1" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 2" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 3" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 4" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 5" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 6" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 7" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="CGI"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 8" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 9" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 10" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="CGI"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 11" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 12" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="CGI"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 13" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 14" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 15" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 16" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 17" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="CGI"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 18" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 19" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 20" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 21" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 22" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 23" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 24" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 25" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 26" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 27" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 28" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 29" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 30" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="CGI"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 31" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="CGI"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 32" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 33" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 34" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 35" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 36" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 37" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 38" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 39" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 40" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="CGI"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 41" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 42" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="CGI"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 43" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 44" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 45" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 46" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 47" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 48" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="CGI"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 49" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 50" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 51" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 52" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 53" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 54" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="CGI"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 55" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 56" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 57" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 58" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 59" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 60" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Qt"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 61" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 62" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 63" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 64" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 65" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 66" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+    <student id="student 67" label="BACHELOR,COMPUTER-SCIENCES">
+      <courses>
+        <course refId="English"/>
+        <course refId="Databases-part2"/>
+        <course refId="Web-Development"/>
+        <course refId="Python-data-analysis"/>
+        <course refId="AI-algorithms"/>
+        <course refId="Functional-programming"/>
+        <course refId="Logic-programming"/>
+      </courses>
+    </student>
+  </students>
+  <rules>
+    <rule>
+      <!-- Sessions once a week, on the same weekly slot -->
+      <sessions groupBy="class">
+        <filter type="part" attributeName="id" in="English-Les"/>
+      </sessions>
+      <constraint name="weekly" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Lessons should be over before the evaluation -->
+      <sessions groupBy="class" sessionsMask="8">
+        <filter type="part" attributeName="id" in="English-Les"/>
+      </sessions>
+      <sessions groupBy="class" sessionsMask="1">
+        <filter type="part" attributeName="id" in="English-Eval"/>
+      </sessions>
+      <constraint name="sequenced" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- All Lessons should start the same week -->
+      <sessions groupBy="part" sessionsMask="1">
+        <filter type="part" attributeName="id" in="English-Les"/>
+      </sessions>
+      <constraint name="sameWeek" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- A Lesson class should have the same teacher for all its sessions -->
+      <sessions groupBy="class">
+        <filter type="course" attributeName="id" in="English"/>
+      </sessions>
+      <constraint name="sameTeachers" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- A Lesson class should be in the same rooms for all tis sessions -->
+      <sessions groupBy="class">
+        <filter type="part" attributeName="id" in="English-Les"/>
+      </sessions>
+      <constraint name="sameRooms" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Lecture sessions should be once a week on the same weekly slot, except for the second session -->
+      <sessions groupBy="class" sessionsMask="1,3-8">
+        <filter type="part" attributeName="id" in="Databases-part2-Lec"/>
+      </sessions>
+      <constraint name="weekly" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Tutorial sessions and Laboratory sessions should be respectively once a week on the same weekly slot -->
+      <sessions groupBy="class">
+        <filter type="part" attributeName="id" in="Databases-part2-Lab,Databases-part2-Tut"/>
+      </sessions>
+      <constraint name="weekly" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- All classes of Tutorial should start the same week -->
+      <sessions groupBy="part" sessionsMask="1">
+        <filter type="part" attributeName="id" in="Databases-part2-Tut"/>
+      </sessions>
+      <constraint name="sameWeek" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- All classes of Laboratory should start the same week -->
+      <sessions groupBy="part" sessionsMask="1">
+        <filter type="part" attributeName="id" in="Databases-part2-Lab"/>
+      </sessions>
+      <constraint name="sameWeek" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Tutorials should start after the second session of Lecture -->
+      <sessions groupBy="session" sessionsMask="2">
+        <filter type="part" attributeName="id" in="Databases-part2-Lec"/>
+      </sessions>
+      <sessions groupBy="session" sessionsMask="1">
+        <filter type="part" attributeName="id" in="Databases-part2-Tut"/>
+      </sessions>
+      <constraint name="sequenced" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Laboratories should start after the first session of Tutorial -->
+      <sessions groupBy="session" sessionsMask="1">
+        <filter type="part" attributeName="id" in="Databases-part2-Tut"/>
+      </sessions>
+      <sessions groupBy="session" sessionsMask="1">
+        <filter type="part" attributeName="id" in="Databases-part2-Lab"/>
+      </sessions>
+      <constraint name="sequenced" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Lectures should be over before the Laboratory evaluation -->
+      <sessions groupBy="session" sessionsMask="8">
+        <filter type="part" attributeName="id" in="Databases-part2-Lec"/>
+      </sessions>
+      <sessions groupBy="session" sessionsMask="1">
+        <filter type="part" attributeName="id" in="Databases-part2-LabEval"/>
+      </sessions>
+      <constraint name="sequenced" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Tutorials should be over before the Laboratory evaluation -->
+      <sessions groupBy="session" sessionsMask="9">
+        <filter type="part" attributeName="id" in="Databases-part2-Tut"/>
+      </sessions>
+      <sessions groupBy="session" sessionsMask="1">
+        <filter type="part" attributeName="id" in="Databases-part2-LabEval"/>
+      </sessions>
+      <constraint name="sequenced" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Laboratories should be over before the Laboratory evaluation -->
+      <sessions groupBy="session" sessionsMask="7">
+        <filter type="part" attributeName="id" in="Databases-part2-Lab"/>
+      </sessions>
+      <sessions groupBy="session" sessionsMask="1">
+        <filter type="part" attributeName="id" in="Databases-part2-LabEval"/>
+      </sessions>
+      <constraint name="sequenced" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- A class should always have the same teacher -->
+      <sessions groupBy="class">
+        <filter type="course" attributeName="id" in="Databases-part2"/>
+      </sessions>
+      <constraint name="sameTeachers" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- A class should always have the same rooms -->
+      <sessions groupBy="class">
+        <filter type="course" attributeName="id" in="Databases-part2"/>
+      </sessions>
+      <constraint name="sameRooms" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Evaluations should take place at the same time -->
+      <sessions groupBy="part">
+        <filter type="course" attributeName="id" in="Databases-part2"/>
+        <filter type="part" attributeName="label" in="EVAL"/>
+      </sessions>
+      <constraint name="sameSlots" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Lecture sessions should be once a week on the same weekly slot, except for the second and third session -->
+      <sessions groupBy="class" sessionsMask="1,4-12">
+        <filter type="part" attributeName="id" in="Web-Development-Lec"/>
+      </sessions>
+      <constraint name="weekly" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Laboratory sessions should be respectively once a week on the same weekly slot -->
+      <sessions groupBy="class">
+        <filter type="part" attributeName="id" in="Web-Development-Lab"/>
+      </sessions>
+      <constraint name="weekly" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Laboratory sessions should start the same week -->
+      <sessions groupBy="part" sessionsMask="1">
+        <filter type="part" attributeName="id" in="Web-Development-Lab"/>
+      </sessions>
+      <constraint name="sameWeek" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Laboratory sessions should start after the third session of Lecture -->
+      <sessions groupBy="session" sessionsMask="3">
+        <filter type="part" attributeName="id" in="Web-Development-Lec"/>
+      </sessions>
+      <sessions groupBy="session" sessionsMask="1">
+        <filter type="part" attributeName="id" in="Web-Development-Lab"/>
+      </sessions>
+      <constraint name="sequenced" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Lectures and Laboratories classes should be respectively in the same rooms (example with all WebDev parts except Eval) -->
+      <sessions groupBy="class">
+        <filter type="course" attributeName="id" in="Web-Development"/>
+        <filter type="part" attributeName="label" notIn="EVAL"/>
+      </sessions>
+      <constraint name="sameRooms" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- A class should always have the same teacher -->
+      <sessions groupBy="class">
+        <filter type="course" attributeName="id" in="Web-Development"/>
+      </sessions>
+      <constraint name="sameTeachers" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Evaluations should take place at the same time -->
+      <sessions groupBy="part">
+        <filter type="course" attributeName="id" in="Web-Development"/>
+        <filter type="part" attributeName="label" in="EVAL"/>
+      </sessions>
+      <constraint name="sameSlots" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Evaluation should be between the fifth and sixth session of Laboratory -->
+      <sessions groupBy="class" sessionsMask="5">
+        <filter type="part" attributeName="id" in="Web-Development-Lab"/>
+      </sessions>
+      <sessions groupBy="class" sessionsMask="1">
+        <filter type="part" attributeName="id" in="Web-Development-LabEval"/>
+      </sessions>
+      <sessions groupBy="class" sessionsMask="6">
+        <filter type="part" attributeName="id" in="Web-Development-Lab"/>
+      </sessions>
+      <constraint name="sequenced" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Laboratory sessions should start after the first session of Lecture -->
+      <sessions groupBy="session" sessionsMask="1">
+        <filter type="part" attributeName="id" in="Web-Development-Lec"/>
+      </sessions>
+      <sessions groupBy="session" sessionsMask="1">
+        <filter type="part" attributeName="id" in="Web-Development-Lab"/>
+      </sessions>
+      <constraint name="sequenced" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- A class should have the same teachers -->
+      <sessions groupBy="class">
+        <filter type="course" attributeName="label" in="OPT"/>
+      </sessions>
+      <constraint name="sameTeachers" type="hard">
+    		</constraint>
+    </rule>
+    <rule>
+      <!-- A class should have the same rooms -->
+      <sessions groupBy="class">
+        <filter type="course" attributeName="label" in="OPT"/>
+      </sessions>
+      <constraint name="sameRooms" type="hard">
+    		</constraint>
+    </rule>
+    <rule>
+      <!-- Lecture and Laboratory sessions should be once a week and on the same weekly slot. Meaning that Laboratories start after Lectures. -->
+      <sessions groupBy="course">
+        <filter type="course" attributeName="id" in="CGI"/>
+        <filter type="part" attributeName="label" in="LECTURE,LABORATORY"/>
+      </sessions>
+      <constraint name="weekly" type="hard">
+	        </constraint>
+    </rule>
+    <rule>
+      <!-- Lesson sessions and Laboratory sessions should be respectively once a week and on the same weekly slot. -->
+      <sessions groupBy="class">
+        <filter type="course" attributeName="id" in="Python-data-analysis"/>
+        <filter type="part" attributeName="label" in="LESSON,LABORATORY"/>
+      </sessions>
+      <constraint name="weekly" type="hard">
+	        </constraint>
+    </rule>
+    <rule>
+      <!-- Laboratory sessions should start after the last session of Lesson -->
+      <sessions groupBy="session" sessionsMask="5">
+        <filter type="part" attributeName="id" in="Python-data-analysis-Les"/>
+      </sessions>
+      <sessions groupBy="session" sessionsMask="1">
+        <filter type="part" attributeName="id" in="Python-data-analysis-Lab"/>
+      </sessions>
+      <constraint name="sequenced" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Laboratory sessions should be once a week and on the same weekly slot. -->
+      <sessions groupBy="class">
+        <filter type="course" attributeName="id" in="AI-algorithms"/>
+        <filter type="part" attributeName="label" in="LABORATORY"/>
+      </sessions>
+      <constraint name="weekly" type="hard">
+	        </constraint>
+    </rule>
+    <rule>
+    	<!-- Tutorial sessions should start after the last session of Lecture -->
+    	<sessions groupBy="session" sessionsMask="2">
+    		<filter type="part" attributeName="id" in="AI-algorithms-Lec" />
+		</sessions>
+		<sessions groupBy="session" sessionsMask="1"> 
+			<filter type="part" attributeName="id" in="AI-algorithms-Tut"/>
+        </sessions>
+        <constraint name="sequenced" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+    	<!-- Laboratory sessions should start after the last session of Tutorials -->
+    	<sessions groupBy="session" sessionsMask="2">
+    		<filter type="part" attributeName="id" in="AI-algorithms-Tut"/>
+		</sessions>
+		<sessions groupBy="session" sessionsMask="1"> 
+			<filter type="part" attributeName="id" in="AI-algorithms-Lab"/>
+		</sessions>
+		<constraint name="sequenced" type="hard">
+			</constraint>
+	</rule>
+    <rule>
+      <!-- Laboratory sessions should be once a week on the same weekly slot. -->
+      <sessions groupBy="class">
+        <filter type="course" attributeName="id" in="Qt"/>
+        <filter type="part" attributeName="label" in="LABORATORY"/>
+      </sessions>
+      <constraint name="weekly" type="hard">
+	        </constraint>
+    </rule>
+    <rule>
+      <!-- Laboratory sessions should start after the last session of Lecture -->
+      <sessions groupBy="session" sessionsMask="4">
+        <filter type="part" attributeName="id" in="Qt-Lec"/>
+      </sessions>
+      <sessions groupBy="session" sessionsMask="1">
+        <filter type="part" attributeName="id" in="Qt-Lab"/>
+      </sessions>
+      <constraint name="sequenced" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- A class should have the same teachers -->
+      <sessions groupBy="class">
+        <filter type="course" attributeName="id" in="Functional-programming,Logic-programming"/>
+      </sessions>
+      <constraint name="sameTeachers" type="hard">
+    		</constraint>
+    </rule>
+    <rule>
+      <!-- A class should have the same rooms -->
+      <sessions groupBy="class">
+        <filter type="course" attributeName="id" in="Functional-programming,Logic-programming"/>
+      </sessions>
+      <constraint name="sameRooms" type="hard">
+    		</constraint>
+    </rule>
+    <rule>
+      <!-- All the classes of Tutorial and Laboratory should start the same week -->
+      <sessions groupBy="part" sessionsMask="1">
+        <filter type="course" attributeName="id" in="Functional-programming,Logic-programming"/>
+        <filter type="part" attributeName="label" in="TUTORIAL,LABORATORY"/>
+      </sessions>
+      <constraint name="sameWeek" type="hard">
+        	</constraint>
+    </rule>
+    <rule>
+      <!-- Lecture sessions are once a week on the same weekly slot, except for the second session. -->
+      <sessions groupBy="class" sessionsMask="1,3-7">
+        <filter type="part" attributeName="id" in="Functional-programming-Lec"/>
+      </sessions>
+      <constraint name="weekly" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Tutorial sessions and Laboratory sessions are respectively once a week on the same weekly slot, except for the second session. -->
+      <sessions groupBy="class">
+        <filter type="part" attributeName="id" in="Functional-programming-Tut,Functional-programming-Lab"/>
+      </sessions>
+      <constraint name="weekly" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Tutorials should start after the third session of Lecture -->
+      <sessions groupBy="session" sessionsMask="3">
+        <filter type="part" attributeName="id" in="Functional-programming-Lec"/>
+      </sessions>
+      <sessions groupBy="session" sessionsMask="1">
+        <filter type="part" attributeName="id" in="Functional-programming-Tut"/>
+      </sessions>
+      <constraint name="sequenced" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Laboratories should start after the forth session of Tutorial -->
+      <sessions groupBy="session" sessionsMask="4">
+        <filter type="part" attributeName="id" in="Functional-programming-Tut"/>
+      </sessions>
+      <sessions groupBy="session" sessionsMask="1">
+        <filter type="part" attributeName="id" in="Functional-programming-Lab"/>
+      </sessions>
+      <constraint name="sequenced" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Lecture sessions are once a week on the same weekly slot, except for the second an third sessions. -->
+      <sessions groupBy="class" sessionsMask="1,4-6">
+        <filter type="part" attributeName="id" in="Logic-programming-Lec"/>
+      </sessions>
+      <constraint name="weekly" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Tutorial sessions and Laboratory sessions are respectively once a week on the same weekly slot, except for the second session. -->
+      <sessions groupBy="class">
+        <filter type="part" attributeName="id" in="Logic-programming-Tut,Logic-programming-Lab"/>
+      </sessions>
+      <constraint name="weekly" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Tutorials should start after the sixth session of Lecture -->
+      <sessions groupBy="session" sessionsMask="6">
+        <filter type="part" attributeName="id" in="Logic-programming-Lec"/>
+      </sessions>
+      <sessions groupBy="session" sessionsMask="1">
+        <filter type="part" attributeName="id" in="Logic-programming-Tut"/>
+      </sessions>
+      <constraint name="sequenced" type="hard">
+            </constraint>
+    </rule>
+    <rule>
+      <!-- Laboratories should start after the first Tutorial -->
+      <sessions groupBy="session" sessionsMask="1">
+        <filter type="part" attributeName="id" in="Logic-programming-Tut"/>
+      </sessions>
+      <sessions groupBy="session" sessionsMask="1">
+        <filter type="part" attributeName="id" in="Logic-programming-Lab"/>
+      </sessions>
+      <constraint name="sequenced" type="hard">
+            </constraint>
+    </rule>
+  </rules>
+  <solution>
+    <groups>
+      <group id="1-Tut1-Lab1-pq" headCount="18">
+        <students>
+          <student refId="student 4"/>
+          <student refId="student 5"/>
+          <student refId="student 6"/>
+          <student refId="student 9"/>
+          <student refId="student 11"/>
+          <student refId="student 13"/>
+          <student refId="student 15"/>
+          <student refId="student 16"/>
+          <student refId="student 18"/>
+          <student refId="student 19"/>
+          <student refId="student 20"/>
+          <student refId="student 23"/>
+          <student refId="student 26"/>
+          <student refId="student 34"/>
+          <student refId="student 36"/>
+          <student refId="student 37"/>
+          <student refId="student 43"/>
+          <student refId="student 53"/>
+        </students>
+        <classes>
+          <class refId="English-Les-1"/>
+          <class refId="English-Eval-1"/>
+          <class refId="Databases-part2-Lec-1"/>
+          <class refId="Databases-part2-Tut-1"/>
+          <class refId="Databases-part2-Lab-1"/>
+          <class refId="Databases-part2-LabEval-1"/>
+          <class refId="Web-Development-Lec-1"/>
+          <class refId="Web-Development-Lab-1"/>
+          <class refId="Python-data-analysis-Les-1"/>
+          <class refId="Python-data-analysis-Lab-1"/>
+          <class refId="Qt-Lec-1"/>
+          <class refId="Qt-Lab-1"/>
+          <class refId="Functional-programming-Lec-1"/>
+          <class refId="Functional-programming-Tut-1"/>
+          <class refId="Functional-programming-Lab-1"/>
+          <class refId="Logic-programming-Lec-1"/>
+          <class refId="Logic-programming-Tut-1"/>
+          <class refId="Logic-programming-Lab-1"/>
+        </classes>
+      </group>
+      <group id="2-Tut1-Lab3-ps" headCount="22">
+        <students>
+          <student refId="student 1"/>
+          <student refId="student 3"/>
+          <student refId="student 14"/>
+          <student refId="student 22"/>
+          <student refId="student 24"/>
+          <student refId="student 29"/>
+          <student refId="student 32"/>
+          <student refId="student 35"/>
+          <student refId="student 39"/>
+          <student refId="student 45"/>
+          <student refId="student 46"/>
+          <student refId="student 49"/>
+          <student refId="student 50"/>
+          <student refId="student 56"/>
+          <student refId="student 59"/>
+          <student refId="student 61"/>
+          <student refId="student 62"/>
+          <student refId="student 63"/>
+          <student refId="student 64"/>
+          <student refId="student 65"/>
+          <student refId="student 66"/>
+          <student refId="student 67"/>
+        </students>
+        <classes>
+          <class refId="English-Les-3"/>
+          <class refId="English-Eval-1"/>
+          <class refId="Databases-part2-Lec-1"/>
+          <class refId="Databases-part2-Tut-1"/>
+          <class refId="Databases-part2-Lab-3"/>
+          <class refId="Databases-part2-LabEval-3"/>
+          <class refId="Web-Development-Lec-1"/>
+          <class refId="Web-Development-Lab-3"/>
+          <class refId="Python-data-analysis-Les-1"/>
+          <class refId="Python-data-analysis-Lab-2"/>
+          <class refId="AI-algorithms-Lec-1"/>
+          <class refId="AI-algorithms-Tut-1"/>
+          <class refId="AI-algorithms-Lab-1"/>
+          <class refId="Functional-programming-Lec-1"/>
+          <class refId="Functional-programming-Tut-1"/>
+          <class refId="Functional-programming-Lab-3"/>
+          <class refId="Logic-programming-Lec-1"/>
+          <class refId="Logic-programming-Tut-1"/>
+          <class refId="Logic-programming-Lab-3"/>
+        </classes>
+      </group>
+      <group id="3-Tut2-Lab2-is" headCount="10">
+        <students>
+          <student refId="student 7"/>
+          <student refId="student 10"/>
+          <student refId="student 12"/>
+          <student refId="student 17"/>
+          <student refId="student 30"/>
+          <student refId="student 31"/>
+          <student refId="student 40"/>
+          <student refId="student 42"/>
+          <student refId="student 48"/>
+          <student refId="student 54"/>
+        </students>
+        <classes>
+          <class refId="English-Les-2"/>
+          <class refId="English-Eval-1"/>
+          <class refId="Databases-part2-Lec-1"/>
+          <class refId="Databases-part2-Tut-2"/>
+          <class refId="Databases-part2-Lab-2"/>
+          <class refId="Databases-part2-LabEval-2"/>
+          <class refId="Web-Development-Lec-1"/>
+          <class refId="Web-Development-Lab-2"/>
+          <class refId="CGI-Lec-1"/>
+          <class refId="CGI-Lab-1"/>
+          <class refId="AI-algorithms-Lec-1"/>
+          <class refId="AI-algorithms-Tut-1"/>
+          <class refId="AI-algorithms-Lab-2"/>
+          <class refId="Functional-programming-Lec-1"/>
+          <class refId="Functional-programming-Tut-2"/>
+          <class refId="Functional-programming-Lab-2"/>
+          <class refId="Logic-programming-Lec-1"/>
+          <class refId="Logic-programming-Tut-2"/>
+          <class refId="Logic-programming-Lab-2"/>
+        </classes>
+      </group>
+      <group id="4-Tut2-Lab2-qs" headCount="17">
+        <students>
+          <student refId="student 2"/>
+          <student refId="student 8"/>
+          <student refId="student 21"/>
+          <student refId="student 25"/>
+          <student refId="student 27"/>
+          <student refId="student 28"/>
+          <student refId="student 33"/>
+          <student refId="student 38"/>
+          <student refId="student 41"/>
+          <student refId="student 44"/>
+          <student refId="student 47"/>
+          <student refId="student 51"/>
+          <student refId="student 52"/>
+          <student refId="student 55"/>
+          <student refId="student 57"/>
+          <student refId="student 58"/>
+          <student refId="student 60"/>
+        </students>
+        <classes>
+          <class refId="English-Les-2"/>
+          <class refId="English-Eval-1"/>
+          <class refId="Databases-part2-Lec-1"/>
+          <class refId="Databases-part2-Tut-2"/>
+          <class refId="Databases-part2-Lab-2"/>
+          <class refId="Databases-part2-LabEval-2"/>
+          <class refId="Web-Development-Lec-1"/>
+          <class refId="Web-Development-Lab-2"/>
+          <class refId="AI-algorithms-Lec-1"/>
+          <class refId="AI-algorithms-Tut-1"/>
+          <class refId="AI-algorithms-Lab-3"/>
+          <class refId="Qt-Lec-1"/>
+          <class refId="Qt-Lab-2"/>
+          <class refId="Functional-programming-Lec-1"/>
+          <class refId="Functional-programming-Tut-2"/>
+          <class refId="Functional-programming-Lab-2"/>
+          <class refId="Logic-programming-Lec-1"/>
+          <class refId="Logic-programming-Tut-2"/>
+          <class refId="Logic-programming-Lab-2"/>
+        </classes>
+      </group>
+    </groups>
+    <!-- English-->
+    <classes>
+      <class refId="English-Les-1">
+        <rooms>
+          <room refId="L201"/>
+          <room refId="L202"/>
+          <room refId="L206"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 1"/>
+        </teachers>
+        <groups>
+          <group refId="1-Tut1-Lab1-pq"/>
+        </groups>
+      </class>
+      <class refId="English-Les-2">
+        <rooms>
+          <room refId="L201"/>
+          <room refId="L202"/>
+          <room refId="L206"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 1"/>
+        </teachers>
+        <groups>
+          <group refId="3-Tut2-Lab2-is"/>
+          <group refId="4-Tut2-Lab2-qs"/>
+        </groups>
+      </class>
+      <class refId="English-Les-3">
+        <rooms>
+          <room refId="L201"/>
+          <room refId="L202"/>
+          <room refId="L206"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 1"/>
+        </teachers>
+        <groups>
+          <group refId="2-Tut1-Lab3-ps"/>
+        </groups>
+      </class>
+      <class refId="English-Eval-1">
+        <rooms>
+          <room refId="AMPHI-A"/>
+          <room refId="AMPHI-B"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 1"/>
+        </teachers>
+        <groups>
+          <group refId="1-Tut1-Lab1-pq"/>
+          <group refId="2-Tut1-Lab3-ps"/>
+          <group refId="3-Tut2-Lab2-is"/>
+          <group refId="4-Tut2-Lab2-qs"/>
+        </groups>
+      </class>
+      <!-- DB -->
+      <class refId="Databases-part2-Lec-1">
+        <rooms>
+          <room refId="AMPHI-A"/>
+          <room refId="AMPHI-B"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 2"/>
+        </teachers>
+        <groups>
+          <group refId="1-Tut1-Lab1-pq"/>
+          <group refId="2-Tut1-Lab3-ps"/>
+          <group refId="3-Tut2-Lab2-is"/>
+          <group refId="4-Tut2-Lab2-qs"/>
+        </groups>
+      </class>
+      <class refId="Databases-part2-Tut-1">
+        <rooms>
+          <room refId="L201"/>
+          <room refId="L202"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 2"/>
+        </teachers>
+        <groups>
+          <group refId="1-Tut1-Lab1-pq"/>
+          <group refId="2-Tut1-Lab3-ps"/>
+        </groups>
+      </class>
+      <class refId="Databases-part2-Tut-2">
+        <rooms>
+          <room refId="L201"/>
+          <room refId="L206"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 2"/>
+        </teachers>
+        <groups>
+          <group refId="3-Tut2-Lab2-is"/>
+          <group refId="4-Tut2-Lab2-qs"/>
+        </groups>
+      </class>
+      <class refId="Databases-part2-Lab-1">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 2"/>
+          <teacher refId="Teacher 3"/>
+        </teachers>
+        <groups>
+          <group refId="1-Tut1-Lab1-pq"/>
+        </groups>
+      </class>
+      <class refId="Databases-part2-Lab-2">
+        <rooms>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 2"/>
+        </teachers>
+        <groups>
+          <group refId="3-Tut2-Lab2-is"/>
+          <group refId="4-Tut2-Lab2-qs"/>
+        </groups>
+      </class>
+      <class refId="Databases-part2-Lab-3">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 2"/>
+          <teacher refId="Teacher 3"/>
+        </teachers>
+        <groups>
+          <group refId="2-Tut1-Lab3-ps"/>
+        </groups>
+      </class>
+      <class refId="Databases-part2-LabEval-1">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 2"/>
+          <teacher refId="Teacher 3"/>
+          <teacher refId="Teacher 4"/>
+        </teachers>
+        <groups>
+          <group refId="1-Tut1-Lab1-pq"/>
+        </groups>
+      </class>
+      <class refId="Databases-part2-LabEval-2">
+        <rooms>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 2"/>
+          <teacher refId="Teacher 3"/>
+          <teacher refId="Teacher 4"/>
+        </teachers>
+        <groups>
+          <group refId="3-Tut2-Lab2-is"/>
+          <group refId="4-Tut2-Lab2-qs"/>
+        </groups>
+      </class>
+      <class refId="Databases-part2-LabEval-3">
+        <rooms>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 2"/>
+          <teacher refId="Teacher 3"/>
+        </teachers>
+        <groups>
+          <group refId="2-Tut1-Lab3-ps"/>
+        </groups>
+      </class>
+      <!-- Web dev -->
+      <class refId="Web-Development-Lec-1">
+        <rooms>
+          <room refId="AMPHI-A"/>
+          <room refId="AMPHI-B"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 5"/>
+        </teachers>
+        <groups>
+          <group refId="1-Tut1-Lab1-pq"/>
+          <group refId="2-Tut1-Lab3-ps"/>
+          <group refId="3-Tut2-Lab2-is"/>
+          <group refId="4-Tut2-Lab2-qs"/>
+        </groups>
+      </class>
+      <class refId="Web-Development-Lab-1">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 5"/>
+          <teacher refId="Teacher 6"/>
+        </teachers>
+        <groups>
+          <group refId="1-Tut1-Lab1-pq"/>
+        </groups>
+      </class>
+      <class refId="Web-Development-Lab-2">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 5"/>
+          <teacher refId="Teacher 6"/>
+        </teachers>
+        <groups>
+          <group refId="3-Tut2-Lab2-is"/>
+          <group refId="4-Tut2-Lab2-qs"/>
+        </groups>
+      </class>
+      <class refId="Web-Development-Lab-3">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 5"/>
+          <teacher refId="Teacher 6"/>
+        </teachers>
+        <groups>
+          <group refId="2-Tut1-Lab3-ps"/>
+        </groups>
+      </class>
+      <class refId="Web-Development-LabEval-1">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 5"/>
+          <teacher refId="Teacher 6"/>
+          <teacher refId="Teacher 7"/>
+        </teachers>
+        <groups>
+          <group refId="1-Tut1-Lab1-pq"/>
+        </groups>
+      </class>
+      <class refId="Web-Development-LabEval-2">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 5"/>
+          <teacher refId="Teacher 6"/>
+          <teacher refId="Teacher 7"/>
+        </teachers>
+        <groups>
+          <group refId="3-Tut2-Lab2-is"/>
+          <group refId="4-Tut2-Lab2-qs"/>
+        </groups>
+      </class>
+      <class refId="Web-Development-LabEval-3">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 5"/>
+          <teacher refId="Teacher 6"/>
+          <teacher refId="Teacher 7"/>
+        </teachers>
+        <groups>
+          <group refId="2-Tut1-Lab3-ps"/>
+        </groups>
+      </class>
+      <!-- CGI -->
+      <class refId="CGI-Lec-1">
+        <rooms>
+          <room refId="AMPHI-A"/>
+          <room refId="AMPHI-B"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 10"/>
+        </teachers>
+        <groups>
+          <group refId="3-Tut2-Lab2-is"/>
+        </groups>
+      </class>
+      <class refId="CGI-Lab-1">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 10"/>
+        </teachers>
+        <groups>
+          <group refId="3-Tut2-Lab2-is"/>
+        </groups>
+      </class>
+      <!-- Python -->
+      <class refId="Python-data-analysis-Les-1">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 9"/>
+        </teachers>
+        <groups>
+          <group refId="1-Tut1-Lab1-pq"/>
+          <group refId="2-Tut1-Lab3-ps"/>
+        </groups>
+      </class>
+      <class refId="Python-data-analysis-Lab-1">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 9"/>
+        </teachers>
+        <groups>
+          <group refId="1-Tut1-Lab1-pq"/>
+        </groups>
+      </class>
+      <class refId="Python-data-analysis-Lab-2">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 9"/>
+        </teachers>
+        <groups>
+          <group refId="2-Tut1-Lab3-ps"/>
+        </groups>
+      </class>
+      <!-- AI algorithms -->
+      <class refId="AI-algorithms-Lec-1">
+        <rooms>
+          <room refId="AMPHI-A"/>
+          <room refId="AMPHI-B"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 10"/>
+        </teachers>
+        <groups>
+          <group refId="2-Tut1-Lab3-ps"/>
+          <group refId="3-Tut2-Lab2-is"/>
+          <group refId="4-Tut2-Lab2-qs"/>
+        </groups>
+      </class>
+      <class refId="AI-algorithms-Tut-1">
+        <rooms>
+          <room refId="L201"/>
+          <room refId="L202"/>
+          <room refId="L206"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 8"/>
+        </teachers>
+        <groups>
+          <group refId="2-Tut1-Lab3-ps"/>
+          <group refId="3-Tut2-Lab2-is"/>
+          <group refId="4-Tut2-Lab2-qs"/>
+        </groups>
+      </class>
+      <class refId="AI-algorithms-Lab-1">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 8"/>
+        </teachers>
+        <groups>
+          <group refId="2-Tut1-Lab3-ps"/>
+        </groups>
+      </class>
+      <class refId="AI-algorithms-Lab-2">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 8"/>
+        </teachers>
+        <groups>
+          <group refId="3-Tut2-Lab2-is"/>
+        </groups>
+      </class>
+      <class refId="AI-algorithms-Lab-3">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 8"/>
+        </teachers>
+        <groups>
+          <group refId="4-Tut2-Lab2-qs"/>
+        </groups>
+      </class>
+      <class refId="Qt-Lec-1">
+        <rooms>
+          <room refId="AMPHI-A"/>
+          <room refId="AMPHI-B"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 7"/>
+        </teachers>
+        <groups>
+          <group refId="1-Tut1-Lab1-pq"/>
+          <group refId="4-Tut2-Lab2-qs"/>
+        </groups>
+      </class>
+      <class refId="Qt-Lab-1">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 7"/>
+        </teachers>
+        <groups>
+          <group refId="1-Tut1-Lab1-pq"/>
+        </groups>
+      </class>
+      <class refId="Qt-Lab-2">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 7"/>
+        </teachers>
+        <groups>
+          <group refId="4-Tut2-Lab2-qs"/>
+        </groups>
+      </class>
+      <class refId="Functional-programming-Lec-1">
+        <rooms>
+          <room refId="AMPHI-A"/>
+          <room refId="AMPHI-B"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 11"/>
+        </teachers>
+        <groups>
+          <group refId="1-Tut1-Lab1-pq"/>
+          <group refId="2-Tut1-Lab3-ps"/>
+          <group refId="3-Tut2-Lab2-is"/>
+          <group refId="4-Tut2-Lab2-qs"/>
+        </groups>
+      </class>
+      <class refId="Functional-programming-Tut-1">
+        <rooms>
+          <room refId="L201"/>
+          <room refId="L202"/>
+          <room refId="L206"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 11"/>
+        </teachers>
+        <groups>
+          <group refId="1-Tut1-Lab1-pq"/>
+          <group refId="2-Tut1-Lab3-ps"/>
+        </groups>
+      </class>
+      <class refId="Functional-programming-Tut-2">
+        <rooms>
+          <room refId="L201"/>
+          <room refId="L202"/>
+          <room refId="L206"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 11"/>
+        </teachers>
+        <groups>
+          <group refId="3-Tut2-Lab2-is"/>
+          <group refId="4-Tut2-Lab2-qs"/>
+        </groups>
+      </class>
+      <class refId="Functional-programming-Lab-1">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 11"/>
+          <teacher refId="Teacher 12"/>
+          <teacher refId="Teacher 7"/>
+        </teachers>
+        <groups>
+          <group refId="1-Tut1-Lab1-pq"/>
+        </groups>
+      </class>
+      <class refId="Functional-programming-Lab-2">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 11"/>
+          <teacher refId="Teacher 12"/>
+          <teacher refId="Teacher 7"/>
+        </teachers>
+        <groups>
+          <group refId="3-Tut2-Lab2-is"/>
+          <group refId="4-Tut2-Lab2-qs"/>
+        </groups>
+      </class>
+      <class refId="Functional-programming-Lab-3">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 11"/>
+          <teacher refId="Teacher 12"/>
+          <teacher refId="Teacher 7"/>
+        </teachers>
+        <groups>
+          <group refId="2-Tut1-Lab3-ps"/>
+        </groups>
+      </class>
+      <!-- Logic programming -->
+      <class refId="Logic-programming-Lec-1">
+        <rooms>
+          <room refId="AMPHI-A"/>
+          <room refId="AMPHI-B"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 10"/>
+        </teachers>
+        <groups>
+          <group refId="1-Tut1-Lab1-pq"/>
+          <group refId="2-Tut1-Lab3-ps"/>
+          <group refId="3-Tut2-Lab2-is"/>
+          <group refId="4-Tut2-Lab2-qs"/>
+        </groups>
+      </class>
+      <class refId="Logic-programming-Tut-1">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 10"/>
+        </teachers>
+        <groups>
+          <group refId="1-Tut1-Lab1-pq"/>
+          <group refId="2-Tut1-Lab3-ps"/>
+        </groups>
+      </class>
+      <class refId="Logic-programming-Tut-2">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 10"/>
+        </teachers>
+        <groups>
+          <group refId="3-Tut2-Lab2-is"/>
+          <group refId="4-Tut2-Lab2-qs"/>
+        </groups>
+      </class>
+      <class refId="Logic-programming-Lab-1">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 10"/>
+        </teachers>
+        <groups>
+          <group refId="1-Tut1-Lab1-pq"/>
+        </groups>
+      </class>
+      <class refId="Logic-programming-Lab-2">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 10"/>
+        </teachers>
+        <groups>
+          <group refId="3-Tut2-Lab2-is"/>
+          <group refId="4-Tut2-Lab2-qs"/>
+        </groups>
+      </class>
+      <class refId="Logic-programming-Lab-3">
+        <rooms>
+          <room refId="H001"/>
+          <room refId="H002"/>
+          <room refId="H003"/>
+        </rooms>
+        <teachers>
+          <teacher refId="Teacher 10"/>
+        </teachers>
+        <groups>
+          <group refId="2-Tut1-Lab3-ps"/>
+        </groups>
+      </class>
+    </classes>
+  </solution>
+</timetabling>

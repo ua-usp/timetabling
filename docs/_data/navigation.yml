@@ -5,3 +5,7 @@ main:
     url: "/schema"
   - title: "Catalog"
     url: "/catalog"
+  - title: "Instances"
+    url: "/instances"
+  - title: "Tools"
+    url: "/tools"
