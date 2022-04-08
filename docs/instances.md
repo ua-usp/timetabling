@@ -17,5 +17,5 @@ In our case, student sectioning was performed in advance and prepartitioned the 
 Lecturers are either course owners involved in all the parts of a course (lecture, tutorial and lab) or tutors that are involved in labs of different courses.
 There are 47 rules defined in the instance.
 
-This instance can be downloaded [here](/assets/ua_l3info_2021.xml).
+This instance can be downloaded in [XML](/assets/instances/ua_l3info_2021.xml), [JSON](/assets/instances/ua_l3info_2021_extension.json) or [DZN](/assets/instances/ua_l3info_2021.dzn) (with the specific [tt_rules_constraints.mzn](/assets/instances/tt_rules_constraints.mzn) file).
 
