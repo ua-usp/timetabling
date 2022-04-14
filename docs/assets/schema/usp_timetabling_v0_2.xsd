@@ -12,7 +12,7 @@
 			<xs:element ref="teachers" minOccurs="0" maxOccurs="1" />
 			<xs:element ref="courses" minOccurs="1" maxOccurs="1" />
 			<xs:element ref="students" minOccurs="0" maxOccurs="1" />
-			<xs:element ref="constraints" minOccurs="0" maxOccurs="1" />
+			<xs:element ref="rules" minOccurs="0" maxOccurs="1" />
 			<xs:element ref="solution" minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 		
