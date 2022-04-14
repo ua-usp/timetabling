@@ -367,10 +367,10 @@
 </xs:element>
 
 <!-- CONSTRAINTS element -->
-<xs:element name="constraints">
+<xs:element name="rules">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="constraintCollection" maxOccurs="unbounded">
+			<xs:element name="rule" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="sessions" maxOccurs="unbounded">
@@ -418,7 +418,7 @@
 						</xs:element> <!-- end of `constraint` -->
 					</xs:sequence>
 				</xs:complexType>
-			</xs:element> <!-- end of `constraintCollection` -->
+			</xs:element> <!-- end of `rule` -->
 		</xs:sequence>
 	</xs:complexType>
 </xs:element>
