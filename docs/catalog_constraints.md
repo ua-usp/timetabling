@@ -6,7 +6,7 @@ permalink: /catalog
 
 ## Constraint Catalog
 
-<table>
+<table style="border: solid black 2px">
 	<thead>
 		<tr>
 			<th rowspan="2">Name </th>
@@ -46,6 +46,17 @@ permalink: /catalog
 			<td> Domain allocation for class with group in the solution</td>
 			<td>group, domain</td>
 		</tr>
+
+		<tr>
+			<td>allowed_period</td>
+			<td>Part</td>
+			<td> max 1  </td>
+			<td colspan="4"> no  </td>
+			<td> no  </td>
+			<td> Domain allocation for class with group in the solution</td>
+			<td>group, domain</td>
+		</tr>
+
 		<tr>
 			<td>assign_room  </td>
 			<td> Course, Part, Class, Sessions, Teacher, Student </td>
@@ -105,6 +116,24 @@ permalink: /catalog
 			<td> yes </td>
 			<td> Session need connected rooms </td>
 			<td>room, share</td>
+		</tr>
+		<tr>
+			<td>different_week </td>
+			<td> Student </td>
+			<td> max 1 </td>
+			<td colspan="4"> no </td>
+			<td> yes </td>
+			<td> A group cant have overlap of 2 sessions </td>
+			<td> overlap, student </td>
+		</tr>
+		<tr>
+			<td>different_day </td>
+			<td> Student </td>
+			<td> max 1 </td>
+			<td colspan="4"> no </td>
+			<td> yes </td>
+			<td> A group cant have overlap of 2 sessions </td>
+			<td> overlap, student </td>
 		</tr>
 		<tr>
 			<td>disjunctive_group </td>
@@ -178,6 +207,40 @@ permalink: /catalog
 			<td>slot</td>
 		</tr>
 		<tr>
+			<td rowspan="2">forbidden_period </td>
+			<td rowspan="2"> All </td>
+			<td rowspan="2"> max 1 </td>
+			<td> first</td> <td> 1 </td>
+			<td>1</td>
+			<td>slot</td>
+			<td rowspan="2"> yes </td>
+			<td rowspan="2"> A session cant take slot in intervalle </td>
+			<td rowspan="2">time, domain</td>
+		</tr>
+		<tr>
+			<td>last </td>
+			<td> 1 </td>
+			<td>1</td>
+			<td>slot</td>
+		</tr>
+				<tr>
+			<td rowspan="2">forbidden_room </td>
+			<td rowspan="2"> All </td>
+			<td rowspan="2"> max 1 </td>
+			<td> first</td> <td> 1 </td>
+			<td>1</td>
+			<td>slot</td>
+			<td rowspan="2"> yes </td>
+			<td rowspan="2"> A session cant take slot in intervalle </td>
+			<td rowspan="2">time, domain</td>
+		</tr>
+		<tr>
+			<td>last </td>
+			<td> 1 </td>
+			<td>1</td>
+			<td>slot</td>
+		</tr>
+		<tr>
 			<td>implicite_sequenced_sessions </td>
 			<td> Class </td>
 			<td> max 1 </td>
@@ -202,6 +265,15 @@ permalink: /catalog
 		</tr>
 		<tr>
 			<td>part_schedule </td>
+			<td> all </td>
+			<td> max 1 </td>
+			<td colspan="4"> no  </td>
+			<td> yes </td>
+			<td> we allowed time part value</td>
+			<td>time, part, domain</td>
+		</tr>
+		<tr>
+			<td>periodic </td>
 			<td> all </td>
 			<td> max 1 </td>
 			<td colspan="4"> no  </td>
@@ -264,7 +336,7 @@ permalink: /catalog
 			<td> time, repartition, domain</td>
 		</tr>
 		<tr>
-			<td>same_weeklyday </td>
+			<td>same_weekday </td>
 			<td> all </td>
 			<td> min 1 </td>
 			<td colspan="4"> no </td>
@@ -290,7 +362,7 @@ permalink: /catalog
 			<td> Sessions are ordered in the horizon slot (i.e i &lt; j slot[session[i]] &lt; slot[session[j]] </td>
 			<td>session, orchestration</td>
 		</tr>
-		<tr>
+		<!--<tr>
 			<td>teacher_repartition </td>
 			<td> Class </td>
 			<td> min 2 </td>
@@ -298,7 +370,7 @@ permalink: /catalog
 			<td> no </td>
 			<td> repartition of teacher into a differentes classes of part </td>
 			<td> repartition, teacher, session</td>
-		</tr>
+		</tr>-->
 		<tr>
 			<td>weekly </td>
 			<td> Course, Part, Class, Session </td>
