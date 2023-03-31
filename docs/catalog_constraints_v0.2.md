@@ -1,7 +1,7 @@
 ---
 title: "USP Constraint Catalog"
 layout: single
-permalink: /catalog
+permalink: /catalog_v0.2
 ---
 
 ## Constraint Catalog
@@ -384,7 +384,7 @@ permalink: /catalog
 </table>
 
 
-
+<!---
 ## Constraint camoufled
 
 
@@ -392,3 +392,6 @@ permalink: /catalog
 |:--------|:--------|:--------|:--------|:--------|
 |size_room_domain | Class | no | Allocate number of room are demand to the part | domain, room|
 |session_no_overlap_two_day | Session | no | A sessions duration dont overlap into 2 day of week| domain, time, overlap| 
+
+-->
+
