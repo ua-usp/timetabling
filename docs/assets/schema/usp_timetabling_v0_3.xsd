@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!--
+Changes from v0.2 to v.03 :
+* Modified element /timetabling/rules/rule
+* Modified element /timetabling/solution/sessions/session
+* Added types `integerRange` (defines a `min-max` or just a `value`) and `integerRangeMin` (defines a `value`, `min-max` or `min-`)
+* Removed type `sessionRoomsType`
+* Modified attribute `sessionRooms` was `sessionRoomsType` is now `integerRangeMin`
+* Modified attributes `sessionTeachers` (of /timetabling/courses/course/allowedTeachers) and `nrSessions` (of /timetabling/courses/course/allowedTeachers/teacher) were `integer` are now `integerRange`
+* Added attribute `label` to /timetabling/courses/course/classes/class
+* Moved attribute `maxHeadCount` from /timetabling/courses/course/classes/class to /timetabling/courses/course/classes
+* Modified attribute `rank` (of /timetabling/solution/sessions/session) was `nonNegativeInteger` is now `positiveInteger`
+* Removed attribute `mandatory` to /timetabling/courses/course/rooms/room
+* Removed attribute `headCount` to /timetabling/solution/groups/group
+* Remove attribute `type` to /timetabling/rules/rule/constraint/parameters/parameter
+-->
+
+<!-- Root element -->
+<xs:element name="timetabling">
+	<xs:complexType>
+		<!-- Root elements -->
+		<xs:sequence>
+			<xs:element ref="calendar" minOccurs="0" maxOccurs="1" />
+			<xs:element ref="rooms" minOccurs="0" maxOccurs="1" />
+			<xs:element ref="equipments" minOccurs="0" maxOccurs="1" />
+			<xs:element ref="teachers" minOccurs="0" maxOccurs="1" />
+			<xs:element ref="courses" minOccurs="1" maxOccurs="1" />
+			<xs:element ref="students" minOccurs="0" maxOccurs="1" />
+			<xs:element ref="rules" minOccurs="0" maxOccurs="1" />
+			<xs:element ref="solution" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+		
+		<!-- Root attributes -->
+		<xs:attribute ref="name" use="required" />
+		<xs:attribute ref="nrWeeks" use="required" />
+		<xs:attribute ref="nrDaysPerWeek" use="required" />
+		<xs:attribute ref="nrSlotsPerDay" use="required" />
+	</xs:complexType>
+	
+	<!-- Keys -->
+	<!-- rooms -->
+	<xs:key name="roomId">
+		<xs:selector xpath=".//rooms/room" />
+		<xs:field xpath="@id" />
+	</xs:key>
+	<xs:keyref name="roomRefId" refer="roomId">
+		<xs:selector xpath=".//allowedRooms/room" />
+		<xs:field xpath="@refId" />
+	</xs:keyref>
+	<!-- equipments -->
+	<!-- There is no 'refId', so we only say that 'id' must be unique -->
+	<xs:unique name="equipmentId">
+		<xs:selector xpath=".//equipments/equipment" />
+		<xs:field xpath="@id" />
+	</xs:unique>
+	<!-- teachers -->
+	<xs:key name="teacherId">
+		<xs:selector xpath=".//teachers/teacher" />
+		<xs:field xpath="@id" />
+	</xs:key>
+	<xs:keyref name="teacherRefId" refer="teacherId">
+		<xs:selector xpath=".//allowedTeachers/teacher" />
+		<xs:field xpath="@refId" />
+	</xs:keyref>
+	<!-- courses -->
+	<xs:key name="courseId">
+		<xs:selector xpath=".//timetabling/courses/course" />
+		<xs:field xpath="@id" />
+	</xs:key>
+	<xs:keyref name="courseRefId" refer="courseId">
+		<xs:selector xpath=".//student/courses/course" />
+		<xs:field xpath="@refId" />
+	</xs:keyref>
+	<!-- parts -->
+	<!-- There is no 'refId', so we only say that 'id' must be unique -->
+	<xs:unique name="partId">
+		<xs:selector xpath=".//course/part" />
+		<xs:field xpath="@id" />
+	</xs:unique>
+	<!-- classes -->
+	<xs:key name="classId">
+		<xs:selector xpath=".//part/classes/class" />
+		<xs:field xpath="@id" />
+	</xs:key>
+	<xs:keyref name="classParent" refer="classId">
+		<xs:selector xpath=".//part/classes/class" />
+		<xs:field xpath="@parent" />
+	</xs:keyref>
+	<xs:keyref name="classRefId" refer="classId">
+		<xs:selector xpath=".//group/classes/class" />
+		<xs:field xpath="@refId" />
+	</xs:keyref>
+	<!-- students -->
+	<xs:key name="studentId">
+		<xs:selector xpath=".//timetabling/students/student" />
+		<xs:field xpath="@id" />
+	</xs:key>
+	<xs:keyref name="studentRefId" refer="studentId">
+		<xs:selector xpath=".//group/students/student" />
+		<xs:field xpath="@refId" />
+	</xs:keyref>
+	
+	<!-- All 'id' attributes in the document should be unique, even if they are not on the same element -->
+	<!--
+	<xs:unique name="id">
+		<xs:selector xpath=".//*" />
+		<xs:field xpath="@id" />
+	</xs:unique>
+	-->
+</xs:element>
+
+
+<!-- Types -->
+<xs:simpleType name="weekType"> <!-- 1-53 -->
+	<xs:restriction base="xs:positiveInteger">
+		<xs:maxInclusive value="53" />
+	</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="weekDayType"> <!-- 1-7 -->
+	<xs:restriction base="xs:positiveInteger">
+		<xs:maxInclusive value="7" />
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="labelType"> <!-- token without comma -->
+	<xs:restriction base="xs:token">
+		<xs:pattern value="[^,]*" />
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="capacityType"> <!-- -1 or more -->
+	<xs:restriction base="xs:integer">
+		<xs:minInclusive value="-1"/>
+	</xs:restriction>
+</xs:simpleType>
+
+<!-- An integer or a `min-max` range -->
+<xs:simpleType name="integerRange">
+	<xs:restriction base="xs:string">
+		<xs:pattern value="[0-9]+(-[0-9]+)?" />
+	</xs:restriction>
+</xs:simpleType>
+
+<!-- An integer, a `min-max` range or a `min-` range -->
+<xs:simpleType name="integerRangeMin">
+	<xs:restriction base="xs:string">
+		<xs:pattern value="[0-9]+(-?[0-9]+)?" />
+	</xs:restriction>
+</xs:simpleType>
+
+<!-- An integer, a range or a list of integer/ranges -->
+<xs:simpleType name="integerRanges">
+	<xs:restriction base="xs:string">
+		<xs:pattern value="[0-9]+((,|-)[0-9]+)*" />
+	</xs:restriction>
+</xs:simpleType>
+
+<!-- Attributes -->
+<!-- we want attributes with the same name to have the same definition among all the document -->
+
+<!-- SHARED attributes -->
+<!-- TODO: an `id` should be defined as a key in the element using it -->
+<xs:attribute name="id" type="xs:string" /> <!-- Identifier (room, equipment, teacher, group, course, part, class) -->
+
+<!-- TODO: a `refId` should be defined as a refkey in the element using it -->
+<xs:attribute name="refId" type="xs:string" /> <!-- Referenced identifier -->
+
+<xs:attribute name="label" type="xs:string" /> <!-- Label of (room, equipment, teacher, group, course, part) -->
+
+<xs:attribute name="name" type="xs:string" /> <!-- Name of the (instance, constraint, parameter) -->
+
+<xs:attribute name="nrSessions" type="xs:positiveInteger" /> <!-- Number of sessions (in the part) -->
+<!-- NOTE: An other attribute named `nrSessions` is defined for the element `allowedTeachers/teacher`. Its type is integerRange. -->
+
+<!-- TIMETABLING attributes -->
+<xs:attribute name="nrWeeks" type="xs:positiveInteger" /> <!-- Number of weeks -->
+<xs:attribute name="nrDaysPerWeek" type="xs:positiveInteger" /> <!-- Number of days per week -->
+<xs:attribute name="nrSlotsPerDay" type="xs:positiveInteger" /> <!-- Number of slots per day -->
+
+<!-- CALENDAR attributes -->
+<xs:attribute name="duration" type="xs:positiveInteger" /> <!-- Duration (in minutes) of a slot -->
+
+<!-- ROOMS attributes -->
+<xs:attribute name="capacity" type="capacityType" /> <!-- Capacity of the room, can be `-1` meaning 'unlimited' -->
+
+<!-- EQUIPMENTS attributes -->
+<xs:attribute name="count" type="xs:nonNegativeInteger" /> <!-- Number of equipment available (can be 0) -->
+
+<!-- TEACHERS attributes -->
+
+<!-- COURSES attributes -->
+<xs:attribute name="sessionLength" type="xs:positiveInteger" /> <!-- How many slots lasts a session -->
+<xs:attribute name="sessionRooms" type="integerRangeMin" /> <!-- How many rooms for a session -->
+<xs:attribute name="sessionTeachers" type="integerRange" /> <!-- How many teachers per session are required -->
+<xs:attribute name="maxHeadCount" type="xs:positiveInteger" /> <!-- How many students can subscribe to the classes -->
+<xs:attribute name="parent" type="xs:string" /> <!-- Identifier of the parent class -->
+
+<!-- CONSTRAINTS attributes -->
+<xs:attribute name="generator" type="xs:string" /> <!-- How the constraints should be generated, for which set -->
+<xs:attribute name="filters" type="xs:string" /> <!-- Which sessions should be included in the final sets -->
+<xs:attribute name="type" type="xs:string" /> <!-- Type of the constraint -->
+
+<!-- SOLUTION attributes -->
+<xs:attribute name="class" type="xs:string" /> <!-- Name of the class -->
+<xs:attribute name="rank" type="xs:positiveInteger" /> <!-- Rank of the session in the class -->
+<xs:attribute name="dailySlot" type="xs:nonNegativeInteger" />
+<xs:attribute name="day" />
+<xs:attribute name="week" />
+
+
+<!-- CALENDAR element -->
+<xs:element name="calendar">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="startingYear" type="xs:integer" minOccurs="0" />
+			<xs:element name="weeks" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="week" type="weekType" maxOccurs="unbounded" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element> <!-- end of `weeks` -->
+			<xs:element name="weekDays" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="weekDay" type="weekDayType" maxOccurs="unbounded" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element> <!-- end of `weekDays` -->
+			<xs:element name="daySlotTimes" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="daySlotTime" type="xs:time" maxOccurs="unbounded" />
+					</xs:sequence>
+					<xs:attribute ref="duration" use="required" />
+				</xs:complexType>
+			</xs:element> <!-- end of `daySlotTimes` -->
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<!-- ROOMS element -->
+<xs:element name="rooms">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="room" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute ref="id" use="required" />
+					<xs:attribute ref="capacity" use="required" />
+					<xs:attribute ref="label" />
+				</xs:complexType>
+			</xs:element> <!-- end of `room` -->
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<!-- EQUIPMENTS element -->
+<xs:element name="equipments">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="equipment" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute ref="id" use="required" />
+					<xs:attribute ref="count" use="required" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<!-- TEACHERS element -->
+<xs:element name="teachers">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="teacher" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute ref="id" use="required" />
+					<xs:attribute ref="label" />
+				</xs:complexType>
+			</xs:element> <!-- end of `teacher`-->
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<!-- COURSES element -->
+<xs:element name="courses">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="course" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="part" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="classes">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="class" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:attribute ref="id" use="required" />
+														<xs:attribute ref="parent" />
+														<xs:attribute ref="label" />
+													</xs:complexType>
+												</xs:element> <!-- end of `class` -->
+											</xs:sequence>
+											<xs:attribute ref="maxHeadCount" use="required" />
+										</xs:complexType>
+									</xs:element> <!-- end of `classes` -->
+									<xs:element name="allowedSlots" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="dailySlots" type="integerRanges" />
+												<xs:element name="days" type="integerRanges" />
+												<xs:element name="weeks" type="integerRanges" />
+											</xs:sequence>
+											<xs:attribute ref="sessionLength" use="required" />
+										</xs:complexType>
+									</xs:element> <!-- end of `allowedSlots` -->
+									<xs:element name="allowedRooms" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="room" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:attribute ref="refId" use="required" />
+													</xs:complexType>
+												</xs:element> <!-- end of `room` -->
+											</xs:sequence>
+											<xs:attribute ref="sessionRooms" use="required" />
+										</xs:complexType>
+									</xs:element> <!-- end of `allowedRooms` -->
+									<xs:element name="allowedTeachers" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="teacher" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:attribute ref="refId" use="required" />
+														<xs:attribute name="nrSessions" type="integerRange" use="required" />
+													</xs:complexType>
+												</xs:element> <!-- end of `teacher` -->
+											</xs:sequence>
+											<xs:attribute ref="sessionTeachers" use="required" />
+										</xs:complexType>
+									</xs:element> <!-- end of `allowedTeachers` -->
+								</xs:sequence>
+								<xs:attribute ref="id" use="required" />
+								<xs:attribute ref="nrSessions" use="required" />
+								<xs:attribute ref="label" />
+							</xs:complexType>
+						</xs:element> <!-- end of `part` -->
+					</xs:sequence>
+					<xs:attribute ref="id" use="required" />
+					<xs:attribute ref="label" />
+				</xs:complexType>
+			</xs:element> <!-- end of `course` -->
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<!-- STUDENTS element -->
+<xs:element name="students">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="student" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="courses" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="course" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:attribute ref="refId" use="required" />
+										</xs:complexType>
+									</xs:element> <!-- end of `course` -->
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element> <!-- end of `courses` -->
+					</xs:sequence>
+					<xs:attribute ref="id" use="required" />
+					<xs:attribute ref="label" />
+				</xs:complexType>
+			</xs:element> <!-- end of `student`-->
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<!-- CONSTRAINTS element -->
+<xs:element name="rules">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="rule" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="selector" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:attribute ref="generator" use="required" />
+								<xs:attribute ref="filters" use="required" />
+							</xs:complexType>
+						</xs:element> <!-- end of `selector` -->
+						<xs:element name="constraint" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="parameters" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="parameter" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:simpleContent>
+															<xs:extension base="xs:string">
+																<xs:attribute ref="name" use="required" />
+															</xs:extension>
+														</xs:simpleContent>
+													</xs:complexType>
+												</xs:element> <!-- end of `parameter` -->
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element> <!-- end of `parameters` -->
+								</xs:sequence>
+								<xs:attribute ref="name" use="required" />
+								<xs:attribute ref="type" use="required" />
+							</xs:complexType>
+						</xs:element> <!-- end of `constraint` -->
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element> <!-- end of `rule` -->
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<!-- SOLUTION element -->
+<xs:element name="solution">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="groups" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="group" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="students" maxOccurs="1">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="student" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:attribute ref="refId" use="required" />
+													</xs:complexType>
+												</xs:element> <!-- end of `student` -->
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element> <!-- end of `students` -->
+									<xs:element name="classes" maxOccurs="1">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="class" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:attribute ref="refId" use="required" />
+													</xs:complexType>
+												</xs:element> <!-- end of `student` -->
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element> <!-- end of `classes` -->
+								</xs:sequence>
+								<xs:attribute ref="id" use="required" />
+							</xs:complexType>
+						</xs:element> <!-- end of `group` -->
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element> <!-- end of `groups` -->
+			<xs:element name="sessions" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="session" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="startingSlot" maxOccurs="1">
+										<xs:complexType>
+											<xs:attribute ref="dailySlot" use="required" />
+											<xs:attribute ref="day" use="required" />
+											<xs:attribute ref="week" use="required" />
+										</xs:complexType>
+									</xs:element> <!-- end of `startingSlot` -->
+									<xs:element name="rooms" maxOccurs="1">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="room" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:attribute ref="refId" use="required" />
+													</xs:complexType>
+												</xs:element> <!-- end of `room` -->
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element> <!-- end of `rooms` -->
+									<xs:element name="teachers" maxOccurs="1">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="teacher" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:attribute ref="refId" use="required" />
+													</xs:complexType>
+												</xs:element> <!-- end of `teacher` -->
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element> <!-- end of `teachers` -->
+								</xs:sequence>
+								<xs:attribute ref="class" use="required" />
+								<xs:attribute ref="rank" use="required" />
+							</xs:complexType>
+						</xs:element> <!-- end of `session`-->
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element> <!-- end of `sessions` -->
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+</xs:schema>
