@@ -102,23 +102,23 @@ In the example below, the course `course-1` is a 3rd year of bachelor course fro
 <courses>
 	<course id="course-1" label="Bachelor,Year-3,Computer-Sciences">
 		<part id="course-1-lecture" nrSessions="12"  label="Lecture">
-		    <classes maxHeadCount="80">
-		        <class id="course-1-lecture-1" />
-		    </classes>
-		    
-		    <allowedSlots sessionLength="80">
-		        <dailySlots>480,570,660,750,840,930,1020,1110,1200</dailySlots>
-		        <days>1-5</days>
-		        <weeks>1-12</weeks>
-	        </allowedSlots>
-	        
-	        <allowedRooms sessionRooms="1-">
-	        	<room refId="room-a1" />
-        		<room refId="room-a2" />
-    		</allowedRooms>
-    		
-    		<allowedTeachers sessionTeachers="1">
-    			<teacher refId="teacher-1" nrSessions="12" />
+			<classes maxHeadCount="80">
+				<class id="course-1-lecture-1" />
+			</classes>
+			
+			<allowedSlots sessionLength="80">
+				<dailySlots>480,570,660,750,840,930,1020,1110,1200</dailySlots>
+				<days>1-5</days>
+				<weeks>1-12</weeks>
+			</allowedSlots>
+			
+			<allowedRooms sessionRooms="1-">
+				<room refId="room-a1" />
+				<room refId="room-a2" />
+			</allowedRooms>
+			
+			<allowedTeachers sessionTeachers="1">
+				<teacher refId="teacher-1" nrSessions="12" />
 			</allowedTeachers>
 		</part>
 		<part id="course-1-tutorial" nrSessions="10" label="Tutorial">
