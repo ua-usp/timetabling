@@ -9,7 +9,7 @@ permalink: /schema
 USP is defined by an XML Schema.
 This schema represents both an instance and its solution.
 
-The schema is implemented into an [XSD file](/assets/schema/usp_timetabling_v0_2.xsd) or a [DTD file](/assets/schema/usp_validator_v0_2.dtd).
+The schema is implemented into an [XSD file](/assets/schema/usp_timetabling_v0_3.xsd). <!-- or a [DTD file](/assets/schema/usp_validator_v0_2.dtd).-->
 
 ```xml
 <timetabling name="main_structure" nrWeeks="12" nrDaysPerWeek="5" nrSlotsPerDay="1440">
@@ -102,8 +102,8 @@ In the example below, the course `course-1` is a 3rd year of bachelor course fro
 <courses>
 	<course id="course-1" label="Bachelor,Year-3,Computer-Sciences">
 		<part id="course-1-lecture" nrSessions="12"  label="Lecture">
-		    <classes>
-		        <class id="course-1-lecture-1" maxHeadCount="80" />
+		    <classes maxHeadCount="80">
+		        <class id="course-1-lecture-1" />
 		    </classes>
 		    
 		    <allowedSlots sessionLength="80">
@@ -112,7 +112,7 @@ In the example below, the course `course-1` is a 3rd year of bachelor course fro
 		        <weeks>1-12</weeks>
 		    </allowedSlots>
 
-		    <allowedRooms sessionRooms="multiple">
+		    <allowedRooms sessionRooms="1-">
 		        <room refId="room-a1" />
 		        <room refId="room-a2" />
 		    </allowedRooms>
@@ -123,9 +123,9 @@ In the example below, the course `course-1` is a 3rd year of bachelor course fro
 		</part>
 		
 		<part id="course-1-tutorial" nrSessions="10" label="Tutorial">
-			<classes>
-				<class id="course-1-tutorial-1" maxHeadCount="30" parent="course-1-lecture-1" />
-				<class id="course-1-tutorial-2" maxHeadCount="30" parent="course-1-lecture-1" />
+			<classes maxHeadCount="30">
+				<class id="course-1-tutorial-1" parent="course-1-lecture-1" />
+				<class id="course-1-tutorial-2" parent="course-1-lecture-1" />
 			</classes>
 			
 			<allowedSlots sessionLength="160">
@@ -134,7 +134,7 @@ In the example below, the course `course-1` is a 3rd year of bachelor course fro
 				<weeks>1-12</weeks>
             </allowedSlots>
             
-            <allowedRooms sessionRooms="single">
+            <allowedRooms sessionRooms="1">
             	<room refId="room-a1" />
             	<room refId="room-a2" />
             	<room refId="room-h1" />
@@ -148,10 +148,10 @@ In the example below, the course `course-1` is a 3rd year of bachelor course fro
 		</part>
 		
 		<part id="course-1-practice" nrSessions="8" label="Practice">
-			<classes>
-				<class id="course-1-practice-1" maxHeadCount="20" parent="course-1-tutorial-1" />
-				<class id="course-1-practice-2" maxHeadCount="20" />
-				<class id="course-1-practice-3" maxHeadCount="20" parent="course-1-tutorial-2" />
+			<classes maxHeadCount="20">
+				<class id="course-1-practice-1" parent="course-1-tutorial-1" />
+				<class id="course-1-practice-2" />
+				<class id="course-1-practice-3" parent="course-1-tutorial-2" />
 			</classes>
 			
 			<allowedSlots sessionLength="160">
@@ -160,7 +160,7 @@ In the example below, the course `course-1` is a 3rd year of bachelor course fro
 				<weeks>1-12</weeks>
 			</allowedSlots>
 			
-			<allowedRooms sessionRooms="single">
+			<allowedRooms sessionRooms="1">
 				<room refId="room-h1" />
 				<room refId="room-h2" />
 				<room refId="room-h3" />
@@ -184,15 +184,15 @@ In the part, we define the student classes, the time slots when the sessions can
 
 ```xml
 <!-- into a 'part' element -->
-<classes>
-	<class id="course-1-practice-1" maxHeadCount="20" parent="course-1-tutorial-1" />
-	<class id="course-1-practice-2" maxHeadCount="20" />
-	<class id="course-1-practice-3" maxHeadCount="20" parent="course-1-tutorial-2" />
+<classes maxHeadCount="20">
+	<class id="course-1-practice-1" parent="course-1-tutorial-1" />
+	<class id="course-1-practice-2" />
+	<class id="course-1-practice-3" parent="course-1-tutorial-2" />
 </classes>
 ```
 
 A class is a set of students attending the course part.
-The size of the class is limited (`maxHeadCount`).
+The size of the class is limited (`maxHeadCount`), and each class shares the same limit.
 A student registered to the course will be assigned to exactly one class of each part of the course.
 The same number of sessions (`nrSessions`) will be scheduled for each class of a part.
 We may want to force the fact that the students of one class have to attend another class (`parent`).
@@ -255,7 +255,7 @@ This grid is valid for all the all the days (`1-5`) and all the weeks (`1-12`).
 
 ```xml
 <!-- into a 'part' element -->
-<allowedRooms sessionRooms="single">
+<allowedRooms sessionRooms="1">
 	<room refId="room-h1" />
 	<room refId="room-h2" />
 	<room refId="room-h3" />
@@ -264,10 +264,11 @@ This grid is valid for all the all the days (`1-5`) and all the weeks (`1-12`).
 
 In a general case not all rooms will be compatible for a given part due to specific features such as equipments or laboratories.
 We thus define the set of rooms in which the sessions may take place.
-Some parts will require a single room per session (`sessionRooms="single"`) while other parts will require several rooms (`sessionRooms="multiple"`).
+Some parts will require a single room per session (`sessionRooms="1"`) while other parts will require at least one room (`sessionRooms="1-"`).
+We can also specify if a part requires between 2 and 4 rooms for example (`sessionRooms="2-4"`).
 
 In the example above, the sessions should take place in one room among `room-h1`, `room-h2` and `room-h3`.
-Int the main example at the top of the section, the lecture (part id `course-1-lecture`) takes place in one room and is broadcasted in another one.
+In the main example at the top of the section, the lecture (part id `course-1-lecture`) takes place in one room and is broadcasted in another one if needed.
 That is why the session should take place in several rooms among the ones that have this type of equipment.
 The model does not know that rooms `room-a1` and `room-a2` can handle these sessions, but the university has the information and thus can filter the rooms to affect them to the part.
 
@@ -331,29 +332,27 @@ Below are three examples of rules with different constraints.
 ```xml
 <!-- into the 'rules' element -->
 <rule>
-	<sessions groupBy="class">
-		<filter type="part" attributeName="label" in="Practice" />
-	</sessions>
+	<selector generator="(class, *)" filters="part[label='Practice']" />
 	
-	<constraint name="weekly" type="hard">
+	<constraint name="same_rooms" type="hard">
 	</constraint>
 </rule>
 ```
 
-This first rule is used to force the practice sessions of each class to be weekly.
+This first rule is used to force the practice sessions of each class to be in the same room.
 We explain below how the rule is built.
 
-The first step is to build the tuples of sessions to which apply the constraint (`<sessions>`).
-We want to select sessions for each class (`groupBy="class"`) but not for all courses, we want to filter the sessions to have only the ones of a practice part (`<filter>`).
+The first step is to select the tuples of sessions to which apply the constraint (`<selector>`).
+We want to select sessions for each class (`generator="(class, *)"`) but not for all courses, we want to filter the sessions to have only the ones of a practice part (`filters="part[label='Practice']"`).
 Here the filter is done by selecting a label, meaning that all the parts labelled with `Practice` are selected.
 
 The second step is to associate the tuples of sessions with a constraint (`<constraint>`) that can be hard or soft (`type`).
 
 The generated constraints of this example are:
 ```
-weekly(HARD, <course-1-practice-1:1, ..., course-1-practice-1:8>)
-weekly(HARD, <course-1-practice-2:1, ..., course-1-practice-2:8>)
-weekly(HARD, <course-1-practice-3:1, ..., course-1-practice-3:8>)
+same_roomes(HARD, <course-1-practice-1:1, ..., course-1-practice-1:8>)
+same_roomes(HARD, <course-1-practice-2:1, ..., course-1-practice-2:8>)
+same_roomes(HARD, <course-1-practice-3:1, ..., course-1-practice-3:8>)
 ```
 Where a session is denoted by its class and its session rank : `class:rank`.
 In this example, three constraints are generated, since there is one part with `Practice` as a label and that this part has three classes.
@@ -362,12 +361,8 @@ The constraints are associated with all the sessions (from 1 to 8) of the class.
 ```xml
 <!-- into the 'rules' element -->
 <rule>
-	<sessions groupBy="class" sessionMask="3">
-		<filter type="part" attributeName="id" in="course-1-lecture" />
-	</sessions>
-	<sessions groupBy="class" sessionMask="1">
-		<filter type="part" attributeName="id" in="course-1-tutorial" />
-	</sessions>
+	<selector generator="(class, {3})" filters="part[id='course-1-lecture']" />
+	<selector generator="(class, {1})" filters="part[id='course-1-tutorial']" />
 	
 	<constraint name="sequenced" type="hard">
 	</constraint>
@@ -376,27 +371,27 @@ The constraints are associated with all the sessions (from 1 to 8) of the class.
 
 This second rule expresses the fact that the tutorials of `course-1` should not begin before the third session of the lecture is ended.
 
-In this example, we need to create two tuples of sessions: the third (`sessionMask="3"`) session of the lecture, and the first (`sessionMask="1"`) sessions of each class (`groupBy="class"`) of the tutorials.
-Here the filters are done by selecting identifiers, meaning that only those specific parts are selected.
+In this example, we need to create two tuples of sessions: the third session of the lecture, and the first sessions of each class of the tutorials.
+The generator of a selector is made has two arguments: the first one is the type used to generate the session tuple, and the second one is the rank of each session, `*` meaning "all" the sessions.
+Here we thus select only the third session of each class (`generator="(class, {3})"`) of the lecture part (`filters="part[id='course-1-lecture']"`) and the first session of each class (`generator="(class, {1})"`) of the tutorial part (`filters="part[id='course-1-tutorial']"`).
 
 The generated constraints of this example are:
 ```
 sequenced(HARD, <course-1-lecture-1:3>, <course-1-tutorial-1:1>)
 sequenced(HARD, <course-1-lecture-1:3>, <course-1-tutorial-2:1>)
 ```
-In this example, the first `<sessions>` selects the third sessions of the lecture classes.
+In this example, the first `<selector>` selects the third sessions of the lecture classes.
 Since there is only one class of lecture, it's the `course-1-lecture-1:3` session.
-The second `<sessions>` selects the first sessions of the tutorial classes.
+The second `<selector>` selects the first sessions of the tutorial classes.
 The two sessions fitting the filter are `course-1-tutorial-1:1` and `course-1-tutorial-2:1`.
 The `sequenced` constraint is generated for each pair of the cartesian product of the two sets of sessions.
 
 ```xml
 <!-- into the 'rules' element -->
 <rule>
-	<sessions groupBy="teacher" attributeName="id" in="teacher-1">
-	</sessions>
+	<selector generator="(teacher, *)" filters="" />
 	
-	<constraint name="forbiddenSlots" type="hard">
+	<constraint name="forbidden_slots" type="hard">
 		<parameters>
 			<parameter type="slot" name="first">9120</parameter> <!-- Week 2, Tuesday, 08:00 -->
 			<parameter type="slot" name="last">9240</parameter> <!-- Week 2, Tuesday, 10:00 -->
@@ -412,12 +407,12 @@ The mechanism is different since we don't know which session the teacher will te
 The tuple of sessions created will then contain all the session that the teacher can teach, but the constraint will be apply only to the sessions finally assigned to the teacher.
 
 The other examples used constraints that do not require parameters.
-Here the `forbiddenSlots` defines a forbidden time frame from the `start` slot to the `last` slot (both included).
+Here the `forbidden_slots` defines a forbidden time frame from the `start` slot to the `last` slot (both included).
 The slots here are global slots, computed thanks to the problem time frame (`nrWeeks`, `nrDaysPerWeek` and `nrSlotsPerDay`).
 
 The generated constraint of this example is:
 ```
-forbiddenSlots(HARD, teacher-1, <course-1-lecture-1:1, ..., course-1-practice-3:8>, 52320, 52440)
+forbidden_slots(HARD, teacher-1, <course-1-lecture-1:1, ..., course-1-practice-3:8>, 52320, 52440)
 ```
 The constraint is associated with all the sessions of all the courses of our example, since `teacher-1` is involved into all the course parts.
 In order to apply the constraint only to sessions that are eventually taught by `teacher-1`, we give `teacher-1` as a parameter of the constraint.
@@ -444,14 +439,14 @@ The solution is split into two elements: the first one is the student sectioned 
 
 The groups are the solutions of the student sectioning.
 According to the students subscriptions and the class hierarchy, each student is sectioned to a group.
-A group of students has a size (`headCount`) and cannot be subdivised.
+A group of students cannot be subdivised.
 Students of a same group follow the same courses: they are in the same classes.
 The class sectioning is done with respect to the max headcount and the hiearchy of the classes.
 
 ```xml
 <!-- into the 'solution' element -->
 <groups>
-	<group id="group-1" headCount="18">
+	<group id="group-1">
 		<students>
 			<student refId="student-1" />
 			<student refId="student-2" />
@@ -485,9 +480,18 @@ The students attending a session belong to the groups that are computed and assi
 ```xml
 <!-- into the 'solution' element -->
 <sessions>
-	<session class="course-1-lecture-1" rank="1" slot="480" rooms="room-a1,room-a2" teachers="teacher-1" />
+	<session class="course-1-lecture-1" rank="1">
+		<startingSlot dailySlot="480" day="1" week="1" />
+		<rooms>
+			<room refId="room-a1" />
+			<room refId="room-a2" />
+		</rooms>
+		<teachers>
+			<teacher refId="teacher-1" />
+		</teachers>
+	</sessions>
 </sessions>
 ```
 
-In the example above, the first session of the `course-1-lecture-1` class is the Monday of the first week at 08:00 (`slot="480"`) in rooms `room-a1` and `room-a2` with `teacher-1`.
+In the example above, the first session of the `course-1-lecture-1` class is the Monday (`day="1"`) of the first week (`week="1"`) at 08:00 (`dailySlot="480"`) in rooms `room-a1` and `room-a2` with `teacher-1`.
 
