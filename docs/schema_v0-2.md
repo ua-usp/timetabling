@@ -3,7 +3,7 @@ title: "USP Schema"
 layout: single
 toc: true
 toc_sticky: true
-permalink: /schema_v0.2
+permalink: /schema_v0-2
 ---
 
 USP is defined by an XML Schema.

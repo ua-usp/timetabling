@@ -1,7 +1,7 @@
 ---
 title: "USP Constraint Catalog"
 layout: single
-permalink: /catalog_v0.2
+permalink: /catalog_v0-2
 ---
 
 ## Constraint Catalog
