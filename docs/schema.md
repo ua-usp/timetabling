@@ -110,18 +110,17 @@ In the example below, the course `course-1` is a 3rd year of bachelor course fro
 		        <dailySlots>480,570,660,750,840,930,1020,1110,1200</dailySlots>
 		        <days>1-5</days>
 		        <weeks>1-12</weeks>
-		    </allowedSlots>
-
-		    <allowedRooms sessionRooms="1-">
-		        <room refId="room-a1" />
-		        <room refId="room-a2" />
-		    </allowedRooms>
-
-		    <allowedTeachers sessionTeachers="1">
-		        <teacher refId="teacher-1" nrSessions="12" />
-		    </allowedTeachers>
+	        </allowedSlots>
+	        
+	        <allowedRooms sessionRooms="1-">
+	        	<room refId="room-a1" />
+        		<room refId="room-a2" />
+    		</allowedRooms>
+    		
+    		<allowedTeachers sessionTeachers="1">
+    			<teacher refId="teacher-1" nrSessions="12" />
+			</allowedTeachers>
 		</part>
-		
 		<part id="course-1-tutorial" nrSessions="10" label="Tutorial">
 			<classes maxHeadCount="30">
 				<class id="course-1-tutorial-1" parent="course-1-lecture-1" />
@@ -132,19 +131,19 @@ In the example below, the course `course-1` is a 3rd year of bachelor course fro
 				<dailySlots>480,570,660,750,840,930,1020,1110,1200</dailySlots>
 				<days>1-5</days>
 				<weeks>1-12</weeks>
-            </allowedSlots>
-            
-            <allowedRooms sessionRooms="1">
-            	<room refId="room-a1" />
-            	<room refId="room-a2" />
-            	<room refId="room-h1" />
-            	<room refId="room-h2" />
-            	<room refId="room-h3" />
-        	</allowedRooms>
-        	
-        	<allowedTeachers sessionTeachers="1">
-        		<teacher refId="teacher-1" nrSessions="20" />
-    		</allowedTeachers>
+			</allowedSlots>
+			
+			<allowedRooms sessionRooms="1">
+				<room refId="room-a1" />
+				<room refId="room-a2" />
+				<room refId="room-h1" />
+				<room refId="room-h2" />
+				<room refId="room-h3" />
+			</allowedRooms>
+			
+			<allowedTeachers sessionTeachers="1">
+				<teacher refId="teacher-1" nrSessions="20" />
+			</allowedTeachers>
 		</part>
 		
 		<part id="course-1-practice" nrSessions="8" label="Practice">
