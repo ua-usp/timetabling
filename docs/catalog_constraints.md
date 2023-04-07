@@ -52,7 +52,7 @@ Constraints are applied to sets of sessions (referred as "the sessions").
 			<td>assign_slot</td>
 			<td>All</td>
 			<td>single</td>
-			<td>None</td>
+			<td><code>slot</code>: slot to be assigned</td>
 			<td></td>
 		</tr>
 		<tr>
