@@ -583,7 +583,7 @@ Constraints are applied to sets of sessions (referred as "the sessions").
 			<td> no </td>
 			<td> repartition of teacher into a differentes classes of part </td>
 			<td> repartition, teacher, session</td>
-		</tr>-->
+		</tr>--><!--
 		<tr>
 			<td>weekly </td>
 			<td> Course, Part, Class, Session </td>
