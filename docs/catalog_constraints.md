@@ -23,28 +23,28 @@ Constraints are applied to sets of sessions (referred as "the sessions").
 			<td>adjacent_rooms</td>
 			<td>All</td>
 			<td>single</td>
-			<td>`roomChain`: comma separated list of room identifiers<br>*This parameter can be repeated. One `roomChain` defines adjacent rooms in order.*</td>
+			<td><code>roomChain</code>: comma separated list of room identifiers<br>*This parameter can be repeated. One <code>roomChain</code> defines adjacent rooms in order.*</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>allowed_slots</td>
 			<td>All</td>
 			<td>single</td>
-			<td>`first`: first allowed slot<br/>`last`: last allowed slot<br/>`period` (*optional*): are the slots dailyslots (`day`), weeklyslots (`week`) or absolute (`global` - default)?</td>
+			<td><code>first</code>: first allowed slot<br/><code>last</code>: last allowed slot<br/><code>period</code> (*optional*): are the slots dailyslots (<code>day</code>), weeklyslots (<code>week</code>) or absolute (<code>global</code> - default)?</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>allowed_rooms</td>
 			<td>All but Room</td>
 			<td>single</td>
-			<td>`rooms`: comma separated list of room identifiers</td>
+			<td><code>rooms</code>: comma separated list of room identifiers</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>assign_rooms</td>
 			<td>All but Room</td>
 			<td>single</td>
-			<td>`rooms`: comma separated list of room identifiers</td>
+			<td><code>rooms</code>: comma separated list of room identifiers</td>
 			<td></td>
 		</tr>
 		<tr>
@@ -114,21 +114,21 @@ Constraints are applied to sets of sessions (referred as "the sessions").
 			<td>forbidden_rooms</td>
 			<td>All but Room</td>
 			<td>single</td>
-			<td>`rooms`: list of room identifiers</td>
+			<td><code>rooms</code>: list of room identifiers</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>forbidden_slots</td>
 			<td>All</td>
 			<td>single</td>
-			<td>`first`: first allowed slot<br/>`last`: last allowed slot<br/>`period` (*optional*): are the slots dailyslots (`day`), weeklyslots (`week`) or absolute (`global` - default)?</td>
+			<td><code>first</code>: first allowed slot<br/><code>last</code>: last allowed slot<br/><code>period</code> (*optional*): are the slots dailyslots (<code>day</code>), weeklyslots (<code>week</code>) or absolute (<code>global</code> - default)?</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>forbidden_teachers</td>
 			<td>All but Teacher</td>
 			<td>single</td>
-			<td>`teachers`: list of teacher identifiers</td>
+			<td><code>teachers</code>: list of teacher identifiers</td>
 			<td></td>
 		</tr>
 		<tr>
@@ -149,7 +149,7 @@ Constraints are applied to sets of sessions (referred as "the sessions").
 			<td>required_rooms</td>
 			<td>All but Room</td>
 			<td>single</td>
-			<td>`rooms`: comma separated list of room identifiers</td>
+			<td><code>rooms</code>: comma separated list of room identifiers</td>
 			<td></td>
 		</tr>
 		<tr>
