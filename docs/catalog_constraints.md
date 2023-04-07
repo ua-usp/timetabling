@@ -129,7 +129,7 @@ Constraints are applied to sets of sessions (referred as "the sessions").
 			<td>forbidden_slots</td>
 			<td>All</td>
 			<td>single</td>
-			<td><code>first</code>: first allowed slot<br/><code>last</code>: last allowed slot<br/><code>period</code> (<i>optional</i>): the slots are dailyslots (<code>day</code>), weeklyslots (<code>week</code>) or absolute (<code>global</code> - default)</td>
+			<td><code>first</code>: first forbidden slot<br/><code>last</code>: last forbidden slot<br/><code>period</code> (<i>optional</i>): the slots are dailyslots (<code>day</code>), weeklyslots (<code>week</code>) or absolute (<code>global</code> - default)</td>
 			<td></td>
 		</tr>
 		<tr>
