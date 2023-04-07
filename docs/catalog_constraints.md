@@ -56,6 +56,13 @@ Constraints are applied to sets of sessions (referred as "the sessions").
 			<td></td>
 		</tr>
 		<tr>
+			<td>assign_teachers</td>
+			<td>All but Teacher</td>
+			<td>single</td>
+			<td><code>teachers</code>: comma separated list of teacher identifiers</td>
+			<td></td>
+		</tr>
+		<tr>
 			<td>different_daily_slot</td>
 			<td>All</td>
 			<td>single</td>
