@@ -1,6 +1,7 @@
 ---
 title: "USP Constraint Catalog"
 layout: single
+classes: wide
 permalink: /catalog
 ---
 
@@ -11,11 +12,11 @@ Constraints are applied to sets of sessions (referred as "the sessions").
 <table>
 	<thead>
 		<tr>
-			<td>Name</td>
-			<td>Entities</td>
-			<td><abbr title="Number of selectors">Size</abbr></td>
-			<td>Parameters</td>
-			<td>Short description</td>
+			<th>Name</th>
+			<th>Entities</th>
+			<th><abbr title="Number of selectors">Size</abbr></th>
+			<th>Parameters</th>
+			<th>Short description</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -23,14 +24,14 @@ Constraints are applied to sets of sessions (referred as "the sessions").
 			<td>adjacent_rooms</td>
 			<td>All</td>
 			<td>single</td>
-			<td><code>roomChain</code>: comma separated list of room identifiers<br>*This parameter can be repeated. One <code>roomChain</code> defines adjacent rooms in order.*</td>
+			<td><code>roomChain</code>: comma separated list of room identifiers<br><i>This parameter can be repeated. One <code>roomChain</code> defines adjacent rooms in order.</i></td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>allowed_slots</td>
 			<td>All</td>
 			<td>single</td>
-			<td><code>first</code>: first allowed slot<br/><code>last</code>: last allowed slot<br/><code>period</code> (*optional*): are the slots dailyslots (<code>day</code>), weeklyslots (<code>week</code>) or absolute (<code>global</code> - default)?</td>
+			<td><code>first</code>: first allowed slot<br/><code>last</code>: last allowed slot<br/><code>period</code> (<i>optional</i>): the slots are dailyslots (<code>day</code>), weeklyslots (<code>week</code>) or absolute (<code>global</code> - default)</td>
 			<td></td>
 		</tr>
 		<tr>
@@ -121,7 +122,7 @@ Constraints are applied to sets of sessions (referred as "the sessions").
 			<td>forbidden_slots</td>
 			<td>All</td>
 			<td>single</td>
-			<td><code>first</code>: first allowed slot<br/><code>last</code>: last allowed slot<br/><code>period</code> (*optional*): are the slots dailyslots (<code>day</code>), weeklyslots (<code>week</code>) or absolute (<code>global</code> - default)?</td>
+			<td><code>first</code>: first allowed slot<br/><code>last</code>: last allowed slot<br/><code>period</code> (<i>optional</i>): the slots are dailyslots (<code>day</code>), weeklyslots (<code>week</code>) or absolute (<code>global</code> - default)</td>
 			<td></td>
 		</tr>
 		<tr>
