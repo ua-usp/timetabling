@@ -13,7 +13,6 @@ Constraints are applied to sets of sessions (referred as "the sessions").
 	<thead>
 		<tr>
 			<th>Name</th>
-			<th>Entities</th>
 			<th><abbr title="Number of selectors">Size</abbr></th>
 			<th>Parameters</th>
 			<th>Short description</th>
@@ -22,203 +21,174 @@ Constraints are applied to sets of sessions (referred as "the sessions").
 	<tbody>
 		<tr>
 			<td>adjacent_rooms</td>
-			<td>All</td>
 			<td>single</td>
 			<td><code>roomChain</code>: comma separated list of room identifiers<br><i>This parameter can be repeated. One <code>roomChain</code> defines adjacent rooms in order.</i></td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>allowed_slots</td>
-			<td>All</td>
 			<td>single</td>
 			<td><code>first</code>: first allowed slot<br/><code>last</code>: last allowed slot<br/><code>period</code> (<i>optional</i>): the slots are dailyslots (<code>day</code>), weeklyslots (<code>week</code>) or absolute (<code>global</code> - default)</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>allowed_rooms</td>
-			<td>All but Room</td>
 			<td>single</td>
 			<td><code>rooms</code>: comma separated list of room identifiers</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>assign_rooms</td>
-			<td>All but Room</td>
 			<td>single</td>
 			<td><code>rooms</code>: comma separated list of room identifiers</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>assign_slot</td>
-			<td>All</td>
 			<td>single</td>
 			<td><code>slot</code>: slot to be assigned</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>assign_teachers</td>
-			<td>All but Teacher</td>
 			<td>single</td>
 			<td><code>teachers</code>: comma separated list of teacher identifiers</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>different_daily_slot</td>
-			<td>All</td>
 			<td>single</td>
 			<td>None</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>different_day</td>
-			<td>All</td>
 			<td>single</td>
 			<td>None</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>different_rooms</td>
-			<td>All but Room</td>
 			<td>single</td>
 			<td>None</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>different_slot</td>
-			<td>All</td>
 			<td>single</td>
 			<td>None</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>different_teachers</td>
-			<td>All but Teacher</td>
 			<td>single</td>
 			<td>None</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>different_week</td>
-			<td>All</td>
 			<td>single</td>
 			<td>None</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>different_weekday</td>
-			<td>All</td>
 			<td>single</td>
 			<td>None</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>different_weeklyslot</td>
-			<td>All</td>
 			<td>single</td>
 			<td>None</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>forbidden_rooms</td>
-			<td>All but Room</td>
 			<td>single</td>
 			<td><code>rooms</code>: list of room identifiers</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>forbidden_slots</td>
-			<td>All</td>
 			<td>single</td>
 			<td><code>first</code>: first forbidden slot<br/><code>last</code>: last forbidden slot<br/><code>period</code> (<i>optional</i>): the slots are dailyslots (<code>day</code>), weeklyslots (<code>week</code>) or absolute (<code>global</code> - default)</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>forbidden_teachers</td>
-			<td>All but Teacher</td>
 			<td>single</td>
 			<td><code>teachers</code>: list of teacher identifiers</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>no_overlap</td>
-			<td>All</td>
 			<td>single</td>
 			<td>None</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>pairwise_no_overlap</td>
-			<td>All</td>
 			<td>multiple</td>
 			<td>None</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>required_rooms</td>
-			<td>All but Room</td>
 			<td>single</td>
 			<td><code>rooms</code>: comma separated list of room identifiers</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>same_daily_slot</td>
-			<td>All</td>
 			<td>single</td>
 			<td>None</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>same_day</td>
-			<td>All</td>
 			<td>single</td>
 			<td>None</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>same_rooms</td>
-			<td>All but Room</td>
 			<td>single</td>
 			<td>None</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>same_slot</td>
-			<td>All</td>
 			<td>single</td>
 			<td>None</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>same_teachers</td>
-			<td>All but Teacher</td>
 			<td>single</td>
 			<td>None</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>same_week</td>
-			<td>All</td>
 			<td>single</td>
 			<td>None</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>same_weekday</td>
-			<td>All</td>
 			<td>single</td>
 			<td>None</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>same_weeklyslot</td>
-			<td>All</td>
 			<td>single</td>
 			<td>None</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>sequenced</td>
-			<td>Courses, Course, Part</td>
 			<td>multiple</td>
 			<td>None</td>
 			<td></td>
