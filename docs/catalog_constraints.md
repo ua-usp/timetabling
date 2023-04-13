@@ -7,7 +7,7 @@ permalink: /catalog
 
 ## Constraint Catalog
 
-Constraints are applied to sets of sessions (referred as "the sessions").
+Constraints are applied to sets of sessions (referred as "the sessions" in the short descriptions) selected *via* selectors (see [schema](schema.md)).
 
 <table>
 	<thead>
@@ -106,7 +106,7 @@ Constraints are applied to sets of sessions (referred as "the sessions").
 		<tr>
 			<td>forbidden_rooms</td>
 			<td>single</td>
-			<td><code>rooms</code>: list of room identifiers</td>
+			<td><code>rooms</code>: comma separated list of room identifiers</td>
 			<td></td>
 		</tr>
 		<tr>
@@ -118,7 +118,7 @@ Constraints are applied to sets of sessions (referred as "the sessions").
 		<tr>
 			<td>forbidden_teachers</td>
 			<td>single</td>
-			<td><code>teachers</code>: list of teacher identifiers</td>
+			<td><code>teachers</code>: comma separated list of teacher identifiers</td>
 			<td></td>
 		</tr>
 		<tr>
@@ -131,6 +131,12 @@ Constraints are applied to sets of sessions (referred as "the sessions").
 			<td>pairwise_no_overlap</td>
 			<td>multiple</td>
 			<td>None</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>periodic</td>
+			<td>single</td>
+			<td><code>value</code>: number of <code>unit</code>s between two successive sessions<br/><code>unit</code>: unit of the <code>value</code> (can be <code>day</code> or <code>week</code>)</td>
 			<td></td>
 		</tr>
 		<tr>
