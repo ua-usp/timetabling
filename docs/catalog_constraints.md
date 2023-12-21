@@ -244,6 +244,6 @@ In the case where the parameters are repeated several times, the union of the pa
 
 ### Constraint explications
 
-- <a name="adjacent_rooms"></a>adjacent_rooms
-- allowed_grids
+#### adjacent_rooms
+#### allowed_grids
 
