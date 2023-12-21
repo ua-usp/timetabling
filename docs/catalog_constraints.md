@@ -24,7 +24,7 @@ In the case where the parameters are repeated several times, the union of the pa
 	</thead>
 	<tbody>
 		<tr>
-			<td>[adjacent_rooms](#adjacent_rooms)</td>
+			<td><a href="#adjacent_rooms">adjacent_rooms</a></td>
 			<td>single</td>
 			<td><code>roomChain</code>: comma separated list of room identifiers<br><i>This parameter can be repeated. One <code>roomChain</code> defines adjacent rooms in order.</i></td>
 			<td></td>
@@ -244,6 +244,6 @@ In the case where the parameters are repeated several times, the union of the pa
 
 ### Constraint explications
 
-- [adjacent_rooms]
+- <a name="adjacent_rooms"></a>adjacent_rooms
 - allowed_grids
 
